@@ -11,7 +11,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: 90s scroll infinite linear;
+    /* animation: 90s scroll infinite linear; */
 }
 .logo{
     width: 150px;
