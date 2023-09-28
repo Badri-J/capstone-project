@@ -1,0 +1,17 @@
+.forgot-pass {
+    width: 30%;
+    min-width: 350px;
+    height: 80vh;
+    background-color: rgb(255,255,255,0.4);
+    box-shadow: rgba(0, 0, 0, 0.3) 5px 5px 10px 10px;
+}
+.forgot-pass-form{
+    display: flex;
+    height: inherit;
+    flex-direction: column;
+    justify-content:space-evenly;
+}
+.update-btn{
+    background-color: var(--primary);
+    color: white;
+}

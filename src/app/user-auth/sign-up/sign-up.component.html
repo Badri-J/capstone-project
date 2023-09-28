@@ -1,0 +1,26 @@
+<div class="container sign-up-card">
+    <form class="sign-up-form mb-3">   
+        <div class="form-floating mb-3">
+            <input type="text" name = "name" class="form-control rounded-0" id="floatingInput" placeholder="Enter your Employee ID" >
+            <label for="floatingInput">Name</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input ngModel type="email" name = "email" class="form-control rounded-0" id="floatingInput" placeholder="Enter your Employee ID" >
+            <label for="floatingInput">E-mail</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input ngModel type="newpassword" name = "newpassword" class="form-control rounded-0" id="floatingInput" placeholder="Password" >
+            <label for="floatingInput">New Password</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input ngModel type="confirmPassword" name = "confirmPassword" class="form-control rounded-0" id="floatingInput" placeholder="Password" >
+            <label for="floatingInput">Confirm Password</label>
+        </div>
+        <div class="d-grid gap-2 mb-3">
+            <button type="submit" class="btn btn-primary btn-lg border-0 rounded-0 sign-up-btn">Login</button>
+        </div>
+        <div class="mb-3 text-center">
+            <a href="./userAuth/login"  title="SignUp">Already Registered? Sign In here</a>
+        </div>
+    </form>
+</div>
