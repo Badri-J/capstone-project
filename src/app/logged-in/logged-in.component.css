@@ -1,0 +1,71 @@
+#main-el{
+    height:100vh;
+    width: 100%;
+    background-color: var(--background);
+    padding:10px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    overflow: hidden;
+}
+.big-icon{
+    font-size: 30px;
+}
+.padding-icon{
+    padding-left: 2px;
+}
+#mail-el::-webkit-scrollbar {
+    display: none;
+}
+.arrow{
+    margin-top: 20px;
+}
+.decreaseWidth{
+    animation:inc-width 0.1s reverse ease-in-out;
+    width:60px;
+}
+.increaseWidth{
+    animation:dec-width 0.1s reverse ease-in-out;
+    width:250px;
+}
+
+.menu-btn{
+    border: none;
+    background-color: transparent;
+}
+#header-el{
+    width:100%;
+    height: 13vh;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+    box-shadow: 2px 5px 10px 1px rgb(0, 0, 0, 0.15);
+}
+
+.hide{
+    display: none;
+}
+#side-bar-el{
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius:15px;
+    border-bottom-left-radius:15px;
+    /* width:250px; */
+    height:95vh;
+    box-shadow: 2px 5px 10px 1px rgb(0, 0, 0, 0.15);
+}
+
+#router-el{
+    padding: 20px;
+    width:95%;
+    height:100vh;
+    overflow: scroll;
+}
+
+#router-el::-webkit-scrollbar{
+    display:none;
+}

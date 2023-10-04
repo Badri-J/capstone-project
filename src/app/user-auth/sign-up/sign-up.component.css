@@ -5,12 +5,46 @@
     justify-content:space-evenly;
 }
 
+.select-form{
+    border-radius: 0;
+}
+
 .sign-up-card {
+    z-index:-1;
     width: 30%;
     min-width: 350px;
     height: 90vh;
-    background-color: rgb(255,255,255,0.4);
+    background-color: rgb(255,255,255,0.55);
     box-shadow: rgba(0, 0, 0, 0.3) 5px 5px 10px 10px;
+}
+
+#warning{
+    color:var(--primary);
+    text-align: center;
+}
+
+.hidden{
+    display: none;
+}
+
+.show{
+    top:-10px;
+    left:0;
+    right:0;
+    position: fixed;
+    z-index: 10;
+    padding-top: 0;
+    padding-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:white;
+    font-size: 20px;
+    margin:20px auto 0px auto;
+    width: 450px;
+    height: 50px;
+    background-color: var(--primary);
+    animation: pop-up linear 3s normal;
 }
 
 .sign-up-btn{
