@@ -1,13 +1,65 @@
-:root{
+:root {
 
     --text: #000000;
-  
-    --background: #ededed;
-  
-    --primary: #eb262d;
-  
-    --secondary: #fcc5d0;
-  
-    --accent: #ff5b60;
-  
-  }
+    --background: #ececec;
+    --primary: #005dff;
+    --secondary: #3783FF;
+    --accent: #7BB8FF;
+
+}
+*{
+    font-family: 'Poppins', sans-serif;
+    margin:0;
+}
+
+@keyframes pop-up {
+    0% {
+        top: -20px;
+        opacity: 1;
+    }
+
+    2% {
+        top: -10px;
+    }
+
+    8% {
+        top: -20px;
+    }
+
+    11% {
+        top: -10px;
+    }
+
+    14% {
+        top: -15px;
+    }
+
+    17% {
+        top: -10px;
+    }
+
+    95% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+@keyframes dec-width {
+    0%{
+        width:250px;
+    }
+    100%{
+        width:60px;
+    }
+}
+@keyframes inc-width {
+    0%{
+        width:60px;
+    }
+    100%{
+        width:250px;
+    }
+}
