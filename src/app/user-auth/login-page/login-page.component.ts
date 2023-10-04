@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { UserserviceService } from 'src/app/userservice.service';
+import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
