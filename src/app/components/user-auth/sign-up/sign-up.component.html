@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
+<div [ngClass]="statusClass" class="{{background}}">
+    <div class="warning" [innerText]="statusText">
+        <p>warning text displayed here</p>
+        <button id = "close-btn">
+            <span class="material-symbols-outlined">
+                close
+            </span>
+        </button>
+    </div>
+    <div id="progress-line" ></div>
+</div>
+
+<div class="container sign-up-card">
+    <form #signUpForm = "ngForm" (ngSubmit)="signUpForm" class="sign-up-form mb-3">   
+        <div class="form-floating mb-3 ">
+            <input type="text" id= "name" name = "name" class="form-control rounded-0"  placeholder="Enter your name" ngModel required/>
+            <label for="name">Name</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="email" id = "email" name = "email" class="form-control rounded-0"  placeholder="Enter your Employee ID" ngModel required>
+            <label for="email">E-mail</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="password" id = "newPassword" name = "newPassword" class="form-control rounded-0"  placeholder="Password" ngModel required>
+            <label for="newPassword">New Password</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="password" id = "confirmPassword" name = "confirmPassword" class="form-control rounded-0"  placeholder="Password" ngModel required>
+            <label for="confirmPassword">Confirm Password</label>
+        </div>
+        <div class="d-grid gap-2 mb-3">
+            <button type="submit" (click) ="onSignUp(signUpForm)"  class="btn btn-primary btn-lg border-0 rounded-0 sign-up-btn">Sign up</button>
+        </div>
+        <div class="mb-3 text-center">
+            <a href="./userAuth/login"  title="SignUp">Already Registered? Sign In here</a>
+        </div>
+    </form>
+</div>

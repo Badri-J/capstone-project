@@ -18,13 +18,16 @@
     box-shadow: rgba(0, 0, 0, 0.3) 5px 5px 10px 10px;
 }
 
-#warning{
-    color:var(--primary);
-    text-align: center;
-}
-
 .hidden{
     display: none;
+}
+
+.bg-red{
+    background: red;
+}
+
+.bg-trans{
+    background: var(--primary);
 }
 
 .show{
@@ -36,6 +39,7 @@
     padding-top: 0;
     padding-bottom: 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     color:white;
@@ -43,9 +47,38 @@
     margin:20px auto 0px auto;
     width: 450px;
     height: 50px;
-    background-color: var(--primary);
+    /* background-color: "`${background}`"; */
     animation: pop-up linear 3s normal;
 }
+
+.warning{
+    height:100%;
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:0 10px;
+}
+
+.warning p{
+    align-self: center;
+}
+
+.close-btn{
+    height:100%;
+    width:10%;
+    color: white;
+    background-color: black;
+    align-self: flex-end;
+}
+
+#progress-line{
+    background-color: var(--background);
+    height: 10%;
+    align-self: flex-start;
+    animation: progress linear 3s normal;
+}
+
 
 .sign-up-btn{
     background-color: var(--primary);

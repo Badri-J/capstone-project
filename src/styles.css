@@ -1,12 +1,21 @@
 :root {
 
     --text: #000000;
-    --background: #ececec;
+    --background: #f1f1f1;
     --primary: #005dff;
     --secondary: #3783FF;
-    --accent: #7BB8FF;
+    --accent: #c4e0ff;
 
 }
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
 *{
     font-family: 'Poppins', sans-serif;
     margin:0;
@@ -14,8 +23,7 @@
 
 @keyframes pop-up {
     0% {
-        top: -20px;
-        opacity: 1;
+        top: -30px;
     }
 
     2% {
@@ -23,7 +31,7 @@
     }
 
     8% {
-        top: -20px;
+        top: -25px;
     }
 
     11% {
@@ -37,16 +45,15 @@
     17% {
         top: -10px;
     }
-
-    95% {
-        opacity: 0.5;
+    90%{
+        opacity:1;
     }
-
     100% {
-        opacity: 0;
-        visibility: hidden;
+        opacity:0;
+        /* visibility: hidden; */
     }
 }
+
 @keyframes dec-width {
     0%{
         width:250px;
@@ -55,11 +62,22 @@
         width:60px;
     }
 }
+
 @keyframes inc-width {
     0%{
         width:60px;
     }
     100%{
         width:250px;
+    }
+}
+
+@keyframes progress {
+    0%{
+        width:0;
+        /* align-self: ; */
+    }
+    100%{
+        width:100%
     }
 }
