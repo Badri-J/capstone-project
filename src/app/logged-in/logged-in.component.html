@@ -1,18 +1,58 @@
-
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <div id = "main-el">
     <div id="side-bar-el" class="shadow-el" [ngClass]="width">
         <div id = "header-el" class="shadow-el" >
-            <span class="material-symbols-outlined big-icon padding-icon">
-                account_balance_wallet
-            </span> 
+            <span class="material-symbols-outlined" id="admin-icon">
+                admin_panel_settings
+            </span>
             <h3 [ngClass]="sideBarStatus">Admin</h3>
             <button class="menu-btn" [ngClass]="sideBarStatus" (click)="hideBar()">
                 <span class="material-symbols-outlined" >
-                    close
+                    west
                 </span>
             </button>
         </div>
+        <ul id="nav-bar">
+            <li>
+                <button routerLink="/admin/dashboard"  class="nav-element" [ngClass]="btnWidth" routerLinkActive="active">
+                    <span class="material-symbols-outlined nav-icon">
+                        dashboard
+                    </span>
+                    <p [ngClass]="sideBarStatus">Dashboard</p>
+                </button>
+            </li>
+            <li>
+                <button routerLink="/admin/employees"  class="nav-element" [ngClass]="btnWidth" routerLinkActive="active">
+                    <span class="material-symbols-outlined nav-icon">
+                        admin_panel_settings
+                    </span>
+                    <p [ngClass]="sideBarStatus">Employee</p>
+                </button>
+            </li>
+            <li>
+                <button routerLink="/admin/devices"  class="nav-element" [ngClass]="btnWidth" routerLinkActive="active">
+                    <span class="material-symbols-outlined nav-icon">
+                        admin_panel_settings
+                    </span>
+                    <p [ngClass]="sideBarStatus" >Device</p>
+                </button>
+            </li>
+            <li>
+                <button routerLink="/admin/softwares"  class="nav-element" [ngClass]="btnWidth" routerLinkActive="active">
+                    <span class="material-symbols-outlined nav-icon">
+                        admin_panel_settings
+                    </span>
+                    <p [ngClass]="sideBarStatus" >Software</p>
+                </button>
+            </li>
+            <li>
+                <button routerLink="/admin/licenses"  class="nav-element" [ngClass]="btnWidth" routerLinkActive="active">
+                    <span class="material-symbols-outlined nav-icon" >
+                        admin_panel_settings
+                    </span>
+                    <p [ngClass]="sideBarStatus" >License</p>
+                </button>
+            </li>
+        </ul>
     </div>
     <button class="menu-btn" [ngClass]="showButton" (click)="showBar()">
         <span class="material-symbols-outlined arrow">

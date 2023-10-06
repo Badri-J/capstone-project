@@ -28,7 +28,6 @@
     animation:dec-width 0.1s reverse ease-in-out;
     width:250px;
 }
-
 .menu-btn{
     border: none;
     background-color: transparent;
@@ -45,7 +44,14 @@
     justify-content: space-evenly;
     box-shadow: 2px 5px 10px 1px rgb(0, 0, 0, 0.15);
 }
-
+.incWidth{
+    padding: 0 20px;
+    width:180px;
+}
+.decWidth{
+    padding:0 10px;
+    width:45px;
+}
 .hide{
     display: none;
 }
@@ -58,14 +64,53 @@
     height:95vh;
     box-shadow: 2px 5px 10px 1px rgb(0, 0, 0, 0.15);
 }
-
+#nav-bar{
+    margin:0 10px;
+    padding: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    flex-direction: column;
+    list-style: none;
+    height:80vh;
+}
+.nav-element{
+    border:none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    opacity: 0.6;
+    height: 50px;
+    /* padding: 0 10px; */
+    border-radius: 25px;
+}
+.nav-element p{
+    font-size: 20px;
+    margin: 0 0;
+}
+.nav-element:hover{
+    background-color: var(--accent);
+    opacity:1;
+}
+.nav-icon{
+    scale:1.5;
+}
+.active, .active:hover{
+    background-color: var(--secondary);
+    opacity:1;
+}
+#admin-icon{
+    font-size: 25px;
+    scale:2.0;
+    color:var(--primary);
+}
 #router-el{
     padding: 20px;
     width:95%;
     height:100vh;
     overflow: scroll;
 }
-
 #router-el::-webkit-scrollbar{
     display:none;
 }
