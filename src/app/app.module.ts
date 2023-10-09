@@ -12,6 +12,7 @@ import { ForgotPassComponent } from './components/user-auth/forgot-pass/forgot-p
 import { LoginPageComponent } from './components/user-auth/login-page/login-page.component';
 import { SignUpComponent } from './components/user-auth/sign-up/sign-up.component';
 import { AdminModule } from './modules/admin/admin.module';
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -25,11 +26,11 @@ import { AdminModule } from './modules/admin/admin.module';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule,
     HttpClientModule,
     NgbModule,
     AdminModule
   ],
+  exports:[FormsModule],
   providers: [UserAuthService],
   bootstrap: [AppComponent]
 })

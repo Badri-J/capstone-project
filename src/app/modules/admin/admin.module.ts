@@ -3,16 +3,21 @@ import { CommonModule } from '@angular/common';
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminAccessComponent } from './components/admin-access/admin-access.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-
+import { FormsModule } from '@angular/forms';
+import { ManageEmployeeComponent } from './components/manage-employee/manage-employee.component';
+import { NotLoggedInComponent } from './components/not-logged-in/not-logged-in.component';
 
 @NgModule({
   declarations: [
     AdminAccessComponent,
-    DashboardComponent
+    DashboardComponent,
+    ManageEmployeeComponent,
+    NotLoggedInComponent,
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    FormsModule
   ]
 })
 export class AdminModule { }

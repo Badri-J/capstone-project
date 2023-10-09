@@ -1,6 +1,9 @@
-
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
-<div id = "main-el">
+<div id="not-logged-in" *ngIf="!isLoggedIn()">
+    <app-not-logged-in>
+    </app-not-logged-in>
+</div>
+<div id = "main-el" *ngIf="isLoggedIn()">
     <div id="side-bar-el" class="shadow-el" [ngClass]="width">
         <div id = "header-el" class="shadow-el" >
             <span class="material-symbols-outlined" id="admin-icon">
@@ -25,7 +28,7 @@
             <li>
                 <button routerLink="/admin/employees"  class="nav-element" [ngClass]="btnWidth" routerLinkActive="active">
                     <span class="material-symbols-outlined nav-icon">
-                        admin_panel_settings
+                        badge
                     </span>
                     <p [ngClass]="sideBarStatus">Employee</p>
                 </button>
@@ -33,7 +36,7 @@
             <li>
                 <button routerLink="/admin/devices"  class="nav-element" [ngClass]="btnWidth" routerLinkActive="active">
                     <span class="material-symbols-outlined nav-icon">
-                        admin_panel_settings
+                        important_devices
                     </span>
                     <p [ngClass]="sideBarStatus" >Device</p>
                 </button>
@@ -41,7 +44,7 @@
             <li>
                 <button routerLink="/admin/softwares"  class="nav-element" [ngClass]="btnWidth" routerLinkActive="active">
                     <span class="material-symbols-outlined nav-icon">
-                        admin_panel_settings
+                        browser_updated
                     </span>
                     <p [ngClass]="sideBarStatus" >Software</p>
                 </button>
@@ -49,9 +52,17 @@
             <li>
                 <button routerLink="/admin/licenses"  class="nav-element" [ngClass]="btnWidth" routerLinkActive="active">
                     <span class="material-symbols-outlined nav-icon" >
-                        admin_panel_settings
+                        shield_lock
                     </span>
                     <p [ngClass]="sideBarStatus" >License</p>
+                </button>
+            </li>
+            <li>
+                <button (click)="logout()"  class="nav-element" [ngClass]="btnWidth" routerLinkActive="active">
+                    <span class="material-symbols-outlined nav-icon">
+                        logout
+                    </span>
+                    <p [ngClass]="sideBarStatus">Logout</p>
                 </button>
             </li>
         </ul>

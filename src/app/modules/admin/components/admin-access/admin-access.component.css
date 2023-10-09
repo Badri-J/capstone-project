@@ -1,3 +1,10 @@
+#not-logged-in{
+    height:100vh;
+    width: 100%;
+    background-color: var(--background);
+    text-align: center;
+}
+
 #main-el{
     height:100vh;
     width: 100%;
@@ -82,7 +89,7 @@
     background-color: transparent;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     opacity: 0.6;
     height: 50px;
     /* padding: 0 10px; */
@@ -91,7 +98,7 @@
 
 .nav-element p{
     font-size: 20px;
-    margin: 0 0;
+    margin: 0 0 0 20px;
 }
 
 .nav-element:hover{

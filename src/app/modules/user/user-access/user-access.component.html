@@ -1,0 +1,11 @@
+<div id="not-logged-in" *ngIf="!isLoggedIn()">
+    <app-not-loged-in></app-not-loged-in>
+</div>
+<div *ngIf="isLoggedIn()">
+    <p>{{employee | json}}</p>
+    
+    <router-outlet></router-outlet>
+    
+    <button (click)="logout()">Logout</button>
+
+</div>

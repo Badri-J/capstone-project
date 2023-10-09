@@ -1,0 +1,71 @@
+#dashboard{
+    display:flex;
+    align-items:center;
+    justify-content: space-evenly;
+}
+#emp-table{
+    width: 65%;
+    height: 90vh;
+    background-color: blanchedalmond;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#add-employee-form{
+    width: 35%;
+    height: 90vh;
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.add-emp-btn{
+    background-color: var(--primary);
+    color:var(--background);
+}
+label{
+    margin-left:10px;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width:90%;
+    height:90%;
+    padding:20px;
+    border-radius: 15px;
+    box-shadow: 2px 5px 10px 2px rgb(0,0,0,0.3);
+}
+.switch{
+    width:40px;
+    height:20px;
+    background:var(--secondary);
+    border-radius: 15px;
+    padding:3px;
+    display: flex;
+    align-items:center;
+    opacity:0.3;
+}
+
+.check{
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+    transition:ease-in 0.2s;
+}
+
+.check:checked{
+    margin-left: 20px;
+}
+
+.check:checked .switch{
+    opacity:1;   
+}

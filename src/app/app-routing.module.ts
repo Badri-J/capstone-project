@@ -19,6 +19,9 @@ import { UserAuthComponent } from './components/user-auth/user-auth.component';
     {
       path: 'admin',
       loadChildren: () => import('./modules/admin/admin.module').then((m) => m.AdminModule) },
+      {
+        path: 'user',
+        loadChildren: () => import('./modules/user/user.module').then((m) => m.UserModule) },
   ]
 
 @NgModule({
