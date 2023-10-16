@@ -1,7 +1,7 @@
 :root {
 
     --text: #000000;
-    --background: #f1f1f1;
+    --background: rgb(244, 250, 255);
     --primary: #005dff;
     --secondary: #4f92ff;
     --accent: #c4e0ff;
@@ -42,7 +42,7 @@
     }
     100% {
         opacity:0;
-        /* visibility: hidden; */
+        visibility: hidden;
     }
 }
 
@@ -67,11 +67,9 @@
 @keyframes progress {
     0%{
         width:0;
-        /* align-self: ; */
     }
     100%{
         width:100%
     }
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+

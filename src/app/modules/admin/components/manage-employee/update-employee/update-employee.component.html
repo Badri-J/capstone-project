@@ -1,0 +1,36 @@
+<div [ngClass]="statusClass" class="{{background}}">
+  <div class="warning" [innerText]="statusText">
+      <p>warning text displayed here</p>
+      <button id = "close-btn">
+          <span class="material-symbols-outlined">
+              close
+          </span>
+      </button>
+  </div>
+  <div id="progress-line" ></div>
+</div>
+<button class = "close-btn" (click)="close()">
+      <span class="material-symbols-outlined ">
+      close
+      </span>
+    </button>
+    <div id="update-employee-form"> 
+      <form #updateEmpForm = "ngForm" (ngSubmit)="updateEmpForm" class="form">
+        <div class="form-floating mb-3 container">
+          <input class="form-control rounded-0" type="text" id= "name" name = "name" [(ngModel)]="emp.name" required/>
+          <label for="name">Name</label>
+        </div>
+        <div class="form-floating mb-3 container container">
+          <input class="form-control rounded-0" type="email" id = "email" name = "email"  [(ngModel)]="emp.email" required>
+          <label for="email">E-mail</label>
+        </div>
+        <div class="form-floating mb-3 container">
+          <input class="form-control rounded-0" type="text" id = "role" name = "role"  [(ngModel)]="emp.role" required>
+          <label for="role">Designation</label>
+        </div>
+        <div class="d-grid gap-2 mb-3 container">
+          <button type="submit" (click)="updateEmployee(updateEmpForm)" class="btn btn-primary btn-lg border-0 rounded-0 add-emp-btn">Update Employee</button>
+        </div>
+      </form>
+    </div>
+

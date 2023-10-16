@@ -1,0 +1,41 @@
+<div [ngClass]="statusClass" class="{{background}}">
+    <div class="warning" [innerText]="statusText">
+        <p>warning text displayed here</p>
+        <button id = "close-btn">
+            <span class="material-symbols-outlined">
+                close
+            </span>
+        </button>
+    </div>
+    <div id="progress-line" ></div>
+  </div>
+  <button class = "close-btn" (click)="close()">
+        <span class="material-symbols-outlined ">
+        close
+        </span>
+      </button>
+      <div id="update-employee-form"> 
+        <form #updateDeviceForm = "ngForm" (ngSubmit)="updateDeviceForm" class="form">
+          <div class="form-floating mb-3 container">
+            <input class="form-control rounded-0" type="text" id= "name" name = "name" [(ngModel)]="dev.name" required/>
+            <label for="name">Name</label>
+          </div>
+          <div class="form-floating mb-3 container">
+            <input class="form-control rounded-0" type="text" id= "type" name = "type" [(ngModel)]="dev.type" required/>
+            <label for="type">Type</label>
+          </div>
+          <div class="form-floating mb-3 container">
+            <input class="form-control rounded-0" type="text" id= "category" name = "category" [(ngModel)]="dev.category" required/>
+            <label for="category">Category</label>
+          </div>
+          <div class="form-floating mb-3 container">
+            <input class="form-control rounded-0" type="date" id= "dateAdded" name = "dateAdded" [(ngModel)]="dev.dateAdded" required/>
+            <label for="dateAdded">Date Added</label>
+          </div>
+          <div class="d-grid gap-2 mb-3 container">
+            <button type="submit" (click)="updateDevice(updateDeviceForm)" class="btn btn-primary btn-lg border-0 rounded-0 add-emp-btn">Update Employee</button>
+          </div>
+        </form>
+      </div>
+  
+  

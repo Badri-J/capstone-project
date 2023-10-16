@@ -59,4 +59,16 @@ export class UserAuthService{
     return this.http.get(`${this.baseURL}getAllEmployees`)
   }
 
+  updateStatus(id:string,status:string){
+    return this.http.put(`${this.baseURL}updateStatus`,{'id':id, 'status':status})
+  }
+
+  updateEmployee(form:any){
+    return this.http.put(`${this.baseURL}updateEmployee`,form)
+  }
+
+  deteteEmployee(id:string){
+    return this.http.delete(`${this.baseURL}deleteEmployee/${id}`)
+  }
+
 }

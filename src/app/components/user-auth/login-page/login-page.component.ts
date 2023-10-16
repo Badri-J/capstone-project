@@ -58,20 +58,30 @@ export class LoginPageComponent implements OnInit
             this.background = "bg-red"
             this.animatePopup("Invalid password")
           }else if( response.message === "empid"){
-            this.background = "bg-trans"
-            this.animatePopup("Login Successfull !! ");
             this.userAuth.getByID(userID).subscribe(
               (response:any) => {
                 this.userAuth.setLoggedInEmployee(response)
+                if(this.userAuth.getLoggedInEmployee().status === "true"){
+                  this.background = "bg-trans"
+                  this.animatePopup("Login Successfull !! ");
+                }else{
+                  this.background = "bg-red"
+                  this.animatePopup("Access Denied !! ");
+                }
               }
             )
             setTimeout(
               ()=>{
-                this.userAuth.setLoginState("true")
-                if(this.userAuth.getLoggedInEmployee().role === "Admin"){
-                  this.router.navigate(['admin'])
+                if(this.userAuth.getLoggedInEmployee().status === "false"){
+                  this.userAuth.setLoginState("false")
+                  localStorage.removeItem("loggedInEmployee")
                 }else{
-                  this.router.navigate(['user'])
+                  this.userAuth.setLoginState("true")
+                  if(this.userAuth.getLoggedInEmployee().role === "Admin"){
+                    this.router.navigate(['admin'])
+                  }else{
+                    this.router.navigate(['user'])
+                  }
                 }
               },3000
               );
@@ -80,20 +90,34 @@ export class LoginPageComponent implements OnInit
             this.animatePopup("Login Successfull !! ");
             this.userAuth.getByEmail(userID).subscribe(
               (response:any) => {
-                console.log(response)
                 this.userAuth.setLoggedInEmployee(response)
+                if(this.userAuth.getLoggedInEmployee().status === "true"){
+                  this.background = "bg-trans"
+                  this.animatePopup("Login Successfull !! ");
+                }else{
+                  this.background = "bg-red"
+                  this.animatePopup("Access Denied !! ");
+                }
               }
             )
             setTimeout(
               ()=>{
-                this.userAuth.setLoginState("true")
-                if(this.userAuth.getLoggedInEmployee().role === "Admin"){
-                  this.router.navigate(['admin'])
+                if(this.userAuth.getLoggedInEmployee().status === "false"){
+                  this.userAuth.setLoginState("false")
+                  localStorage.removeItem("loggedInEmployee")
                 }else{
-                  this.router.navigate(['user'])
+                  this.userAuth.setLoginState("true")
+                  if(this.userAuth.getLoggedInEmployee().role === "Admin"){
+                    this.router.navigate(['admin'])
+                  }else{
+                    this.router.navigate(['user'])
+                  }
                 }
               },3000
               );
+          }
+          else{
+            this.animatePopup("Email or Employee ID doesn't exist!!")
           }
         } 
       )

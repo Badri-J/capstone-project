@@ -121,7 +121,6 @@
     color:var(--primary);
 }
 #router-el{
-    padding: 20px;
     width:95%;
     height:100vh;
     overflow: scroll;

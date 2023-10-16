@@ -1,0 +1,70 @@
+#update-employee-form{
+    width: 35%;
+    margin: 100px auto 100px auto;
+}
+@media (max-width:1000px) {
+    #update-employee-form{
+        width:50%;
+        margin:90px auto;
+    }
+}
+@media (max-width:700px) {
+    #update-employee-form{
+        width:90%;
+        margin:30px auto;
+        height: 100vh;
+    }
+}
+
+.show{
+    top:-10px;
+    left:0;
+    right:0;
+    position: fixed;
+    z-index: 20;
+    padding-top: 0;
+    padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color:white;
+    font-size: 20px;
+    margin:20px auto 0px auto;
+    width: 450px;
+    height: 50px;
+    /* background-color: "`${background}`"; */
+    animation: pop-up linear 3s normal;
+}
+
+.hidden{
+    display: none;
+}
+
+.bg-red{
+    background: red;
+}
+
+.bg-trans{
+    background: var(--primary);
+}
+
+.warning{
+    height:100%;
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:0 10px;
+}
+
+.warning p{
+    align-self: center;
+}
+
+#progress-line{
+    background-color: var(--background);
+    height: 10%;
+    align-self: flex-start;
+    animation: progress linear 3s normal;
+}

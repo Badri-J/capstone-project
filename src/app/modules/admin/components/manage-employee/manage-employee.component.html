@@ -1,52 +1,100 @@
-<div id="dashboard">
-    <div id="add-employee-form"> 
-      <form #addEmpForm = "ngForm" (ngSubmit)="addEmpForm" class="form">
-        <div class="form-floating mb-3 container">
-            <input type="text" id= "name" name = "name" class="form-control rounded-0"  placeholder="Enter your name" ngModel required/>
-            <label for="name">Name</label>
-        </div>
-        <div class="form-floating mb-3 container container">
-            <input type="email" id = "email" name = "email" class="form-control rounded-0"  placeholder="Enter your Employee ID" ngModel required>
-            <label for="email">E-mail</label>
-        </div>
-        <div class="form-floating mb-3 container">
-            <input type="text" id = "role" name = "role" class="form-control rounded-0"  placeholder="role" ngModel required>
-            <label for="role">Designation</label>
-        </div>
-        <div class="d-grid gap-2 mb-3 container">
-            <button type="submit" (click)="addEmployee(addEmpForm)" class="btn btn-primary btn-lg border-0 rounded-0 add-emp-btn">Add Employee</button>
-        </div>
-        <div class="mb-3 text-center">
-          <a href="./userAuth/login"  title="SignUp">Click here to add more employees</a>
+<div class="alert-el" [ngClass]="status" *ngIf="showAlert">
+  <p> Are you sure you want to delete employee {{getID()}}</p>
+  <div id = "alert-btn-grp">
+    <button id="ok" (click)="deleteEmpl()">OK</button>
+    <button id="cancel" (click)="closeAlert()">CANCEL</button>
+</div>
+</div>
+<div [ngClass]="statusClass" class="{{background}}">
+  <div class="warning" [innerText]="statusText">
+      <p>warning text displayed here</p>
+      <button id = "close-btn">
+          <span class="material-symbols-outlined">
+              close
+          </span>
+      </button>
+  </div>
+  <div id="progress-line" ></div>
+</div>
+<div class="display-form" *ngIf="showUpdateForm">
+  <router-outlet></router-outlet>
+</div>
+<div *ngIf="showAddForm" class="display-form">
+  <button class = "close-btn" (click)="hideAddEmployee()">
+    <span class="material-symbols-outlined ">
+    close
+    </span>
+  </button>
+  <div id="add-employee-form"> 
+    <form #addEmpForm = "ngForm" (ngSubmit)="addEmpForm" class="form">
+      <div class="form-floating mb-3 container">
+        <input type="text" id= "name" name = "name" class="form-control rounded-0"  placeholder="Enter your name" ngModel required/>
+        <label for="name">Name</label>
       </div>
-      </form>
-    </div>
-    <div id="emp-table">
-        <table class="table table-striped">
+      <div class="form-floating mb-3 container">
+        <input type="email" id = "email" name = "email" class="form-control rounded-0"  placeholder="Enter your Employee ID" ngModel required>
+        <label for="email">E-mail</label>
+      </div>
+      <div class="form-floating mb-3 container">
+        <input type="text" id = "role" name = "role" class="form-control rounded-0"  placeholder="role" ngModel required>
+        <label for="role">Designation</label>
+      </div>
+      <div class="d-grid gap-2 mb-3 container">
+        <button type="submit" (click)="addEmployee(addEmpForm)" class="btn btn-primary btn-lg border-0 rounded-0 add-emp-btn">Add Employee</button>
+      </div>
+      <div class="mb-3 text-center">
+        <a href="#"  title="SignUp">Click here to add more employees</a>
+      </div>
+    </form>
+  </div>
+</div>
+<div id="dashboard" [ngClass]="blur">
+  <div id="btn-group">
+    <input type="text" name="search" id="search" placeholder="Search by Email/ Name" [(ngModel)] = "searchText">
+    <button class=" add-emp" (click)="showAddEmployee()">Add Employee</button>
+  </div>
+    <div  id="emp-table">
+        <table class="table table-striped bdr">
             <thead>
               <tr>
                 <th scope="col">Employee ID</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email ID</th>
-                <th scope="col">Role</th>
-                <th scope="col">Status</th>
+                <th scope="col">Designation</th>
+                <th scope="col">Access</th>
+                <th scope="col">Actions</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let employee of employees">
-                <th scope="row">{{employee.empid}}</th>
-                <td>{{employee.name}}</td>
-                <td>{{employee.email}}</td>
-                <td>{{employee.role}}</td>
-                <td>
-                    <form >
+              <tr *ngFor="let employee of employees| searchFilter : searchText  |paginate: {itemsPerPage: 5, currentPage: p, totalItems:totalEmployees}">
+                <th class="table-item" scope="row">{{employee.empid}}</th>
+                <td class="table-item">{{employee.name}}</td>
+                <td class="table-item">{{employee.email}}</td>
+                <td class="table-item">{{employee.role}}</td>
+                <td class="table-item">
                       <label class="switch">
-                        <input type="checkbox" name="status" id ="status" class="check" (change)="geStatus($event)">
+                        <input type="checkbox" name="status" id ="status" class="check" [(ngModel)] ="employee.status" (change)="updateStatus(employee.empid,$event)">
                       </label>
-                    </form>
+                </td>
+                <td>
+                  <div id="action-buttons">
+                    <button class="action-btn" (click)="showUpdateEmployee(employee.empid)">
+                      <span class="material-symbols-outlined">
+                        edit
+                      </span>
+                    </button>
+                    <button class="action-btn">
+                      <span class="material-symbols-outlined" (click)="deleteEmployee(employee.empid)">
+                        delete
+                      </span>
+                    </button>
+                  </div>
                 </td>
               </tr>
             </tbody>
           </table>
+    </div>
+    <div class="pagination">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </div>
 </div>

@@ -4,7 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { UserAuthComponent } from './components/user-auth/user-auth.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UserAuthService } from './Service/user-auth.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -20,7 +19,7 @@ import { from } from 'rxjs';
     UserAuthComponent,
     ForgotPassComponent,
     LoginPageComponent,
-    SignUpComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
@@ -28,10 +27,10 @@ import { from } from 'rxjs';
     FormsModule,
     HttpClientModule,
     NgbModule,
-    AdminModule
+    AdminModule,
   ],
   exports:[FormsModule],
   providers: [UserAuthService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

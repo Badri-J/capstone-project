@@ -1,1 +1,98 @@
-<p>manage-software works!</p>
+<div class="alert-el" [ngClass]="status" *ngIf="showAlert">
+    <p> Are you sure you want to delete software {{getID()}}</p>
+    <div id = "alert-btn-grp">
+      <button id="ok" (click)="confirmDelete()" >OK</button>
+      <button id="cancel" (click)="closeAlert()">CANCEL</button>
+  </div>
+  </div>
+  <div [ngClass]="statusClass" class="{{background}}">
+    <div class="warning" [innerText]="statusText">
+        <p>warning text displayed here</p>
+        <button id = "close-btn">
+            <span class="material-symbols-outlined">
+                close
+            </span>
+        </button>
+    </div>
+    <div id="progress-line" ></div>
+    </div>
+
+    <div class="display-form" *ngIf="showUpdateForm">
+      <router-outlet></router-outlet>
+    </div>
+
+    <div *ngIf="showAddForm" class="display-form">
+        <button class = "close-btn" (click)="hideAddSoftware()">
+          <span class="material-symbols-outlined ">
+          close
+          </span>
+        </button>
+        <div id="add-employee-form"> 
+          <form #addSoftwareForm = "ngForm" (ngSubmit)="addSoftwareForm" class="form">
+            <div class="form-floating mb-3 container">
+              <input type="text" id= "name" name = "name" class="form-control rounded-0"  placeholder="Enter Software name" ngModel required/>
+              <label for="name">Name</label>
+            </div>
+            <div class="form-floating mb-3 container">
+              <input type="text" id = "version" name = "version" class="form-control rounded-0"  placeholder="Enter Software version" ngModel required>
+              <label for="version">Version</label>
+            </div>
+            <div class="form-floating mb-3 container">
+                <input type="text" id = "qty" name = "qty" class="form-control rounded-0"  placeholder="Enter Software quantity" ngModel required>
+                <label for="qty">Quantity</label>
+              </div>
+            <div class="form-floating mb-3 container">
+                <input type="date" id = "dateAdded" name = "dateAdded" class="form-control rounded-0"  placeholder="Enter date added" ngModel required>
+                <label for="dateAdded">Date Added</label>
+              </div>
+            <div class="d-grid gap-2 mb-3 container">
+              <button type="submit" (click)="addSoftware(addSoftwareForm)" class="btn btn-primary btn-lg border-0 rounded-0 add-emp-btn">Add Software</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+  <div id="dashboard" [ngClass]="blur">
+    <div id="btn-group">
+      <input type="text" name="search" id="search" placeholder="Search" [(ngModel)] = "searchText">
+      <button class=" add-emp" (click)="showAddSoftware()">Add Software</button>
+    </div>
+      <div  id="emp-table">
+          <table class="table table-striped bdr">
+              <thead>
+                <tr>
+                  <th scope="col">Software ID</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Version</th>
+                  <th scope="col">Date Added</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let software of softwares| searchFilter : searchText  |paginate: {itemsPerPage: 5, currentPage: p, totalItems:totalSoftwares}">
+                  <th class="table-item" scope="row">{{software.id}}</th>
+                  <td class="table-item">{{software.name}}</td>
+                  <td class="table-item">{{software.version}}</td>
+                  <td class="table-item">{{software.dateAdded}}</td>
+                  <td>
+                    <div id="action-buttons">
+                      <button class="action-btn" (click)="showUpdateDevice(software.id)">
+                        <span class="material-symbols-outlined">
+                          edit
+                        </span>
+                      </button>
+                      <button class="action-btn">
+                        <span class="material-symbols-outlined" (click)="deleteSoftware(software.id)" >
+                          delete
+                        </span>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+      </div>
+      <div class="pagination">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+  </div>
