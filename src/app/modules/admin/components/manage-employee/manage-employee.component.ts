@@ -17,8 +17,9 @@ export class ManageEmployeeComponent implements OnInit{
   itemsPerPage:any;
   emailExp: RegExp = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
   newEmployee!:NgForm;
-  showAddForm:boolean = false; // Change After
+  showAddForm:boolean = false;
   blur:string="no-blur"
+  showEmployeeDetails:boolean = false;
   showUpdateForm:boolean = false;
   isChecked!:boolean;
   totalEmployees!:number;
@@ -73,6 +74,18 @@ export class ManageEmployeeComponent implements OnInit{
     );
   }
   
+  showEmployee(empid:string){
+    this.router.navigate(['employees/employeeDetails',empid])
+    this.showEmployeeDetails = true;
+    this.blur = "add-blur"
+  }
+
+  hideEmployee(){
+    this.router.navigate(['admin/employees'])
+    this.showEmployeeDetails = true;
+    this.blur = "no-blur"
+  }
+
   showAddEmployee(){
     this.showAddForm = true;
     this.blur = "add-blur"
@@ -80,7 +93,7 @@ export class ManageEmployeeComponent implements OnInit{
 
   hideAddEmployee(){
     this.showAddForm = false;
-    this.blur = "no-bur"
+    this.blur = "no-blur"
   }
 
   showUpdateEmployee(empid:string){
@@ -91,7 +104,7 @@ export class ManageEmployeeComponent implements OnInit{
 
   hideUpdateEmployee(){
     this.showUpdateForm = false;
-    this.blur = "no-bur"
+    this.blur = "no-blur"
   }
 
   validateEmployeeForm(form:NgForm):boolean{

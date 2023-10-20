@@ -1,0 +1,16 @@
+<div id="main-comp">
+    <button class="close" (click)="router.navigate(['/admin/dashboard'])">
+        <span class="material-symbols-outlined">
+            close
+        </span>
+    </button>
+    <section id = "tomail" class="mini-el">
+        <strong>To: </strong> <i>{{email.toMail}}</i>
+    </section>
+    <section id = "subject" class="mini-el">
+        <strong> Subject: </strong> <i>{{email.subject}}</i> 
+    </section>
+    <section id= "body">
+        {{email.body}}
+    </section>
+</div>

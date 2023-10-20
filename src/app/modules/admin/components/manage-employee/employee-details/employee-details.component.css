@@ -1,0 +1,98 @@
+.card-el{
+    width:400px;
+    height:80vh;
+    padding:10px 20px;
+}
+#employee-details{
+    width:90%;
+    height:90%;
+    background-color: rgb(255,255,255,0.9);
+    display: flex;
+    margin:4% auto;
+    align-items: center;
+    justify-content: space-between;
+    overflow: scroll;
+    padding: 20px;
+    border-radius: 10px;
+    list-style: none;
+}
+.details{
+    width: 300px;
+    height: 150px;
+    padding: 20px 30px;
+    margin: 20px 0 20px 0;
+    background-color: var(--accent);
+    border-radius:10px;
+    box-shadow: 2px 3px 5px 2px rgb(0,0,0,0.3);
+}
+.heading{
+    min-width:120px;
+    /* margin-right: 20px; */
+}
+.not-found{
+    width:50%;
+    height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.element{
+    display:flex;
+    align-items:center;
+    justify-content: flex-start;
+    width:100%;
+    margin-left:10px;
+    /* height:50px; */
+}
+.show{
+    top:-10px;
+    left:0;
+    right:0;
+    position: fixed;
+    z-index: 20;
+    padding-top: 0;
+    padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color:white;
+    font-size: 20px;
+    margin:20px auto 0px auto;
+    width: 450px;
+    height: 50px;
+    /* background-color: "`${background}`"; */
+    animation: pop-up linear 3s normal;
+}
+
+.hidden{
+    display: none;
+}
+
+.bg-red{
+    background: red;
+}
+
+.bg-trans{
+    background: var(--primary);
+}
+
+.warning{
+    height:100%;
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:0 10px;
+}
+
+.warning p{
+    align-self: center;
+}
+
+#progress-line{
+    background-color: var(--background);
+    height: 10%;
+    align-self: flex-start;
+    animation: progress linear 3s normal;
+}

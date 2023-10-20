@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserAuthService } from 'src/app/Service/user-auth.service';
+import { Employee } from 'src/app/interfaces/employee';
 
 @Component({
   selector: 'app-admin-access',
@@ -13,6 +14,7 @@ export class AdminAccessComponent {
 	showButton:any =  'hide'
 	width:any = 'increaseWidth'
 	btnWidth:any = 'incWidth';
+	employee:Employee = this.userAuthService.getLoggedInEmployee()
 	constructor(private userAuthService:UserAuthService, private router:Router){
 
 	}

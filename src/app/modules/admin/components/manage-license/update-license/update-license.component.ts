@@ -58,10 +58,11 @@ export class UpdateLicenseComponent {
       (response:any) =>{
         console.log(response)
         this.license = {
-         id : response.license_id,
-         type : response.type,
-         dateIssued : response.date_issued,
-         expiryDate : response.expiry_date
+          name : response.name, 
+          id : response.license_id,
+          type : response.type,
+          dateIssued : response.date_issued,
+          expiryDate : response.expiry_date
         }
       }
     )

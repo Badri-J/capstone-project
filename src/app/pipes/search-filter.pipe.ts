@@ -22,7 +22,7 @@ export class SearchFilterPipe implements PipeTransform {
         for(let i of Object.keys(it)){
           if(typeof i === 'string' && it[i].toLowerCase().includes(searchText)) {
             console.log(i , it)
-            if(!  results.includes(it)){
+            if(!results.includes(it)){
               results.push(it);
             }
             }

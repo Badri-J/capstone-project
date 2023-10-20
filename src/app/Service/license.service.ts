@@ -33,4 +33,17 @@ export class LicenseService {
   public deleteLicense(id:string){
     return this.http.delete(`${this.baseURL}deleteLicense/${id}`)
   }
+
+  public assignDevice(details:any){
+    return this.http.post(`${this.baseURL}assignDevice`,details)
+  }
+
+  public assignSoftware(details:any){
+    return this.http.post(`${this.baseURL}assignSoftware`,details)
+  }
+
+  public getLicesneByID(id:string){
+    return this.http.get(`${this.baseURL}getLicenseByID/${id}`)
+  }
+
 }

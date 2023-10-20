@@ -30,11 +30,15 @@
         <div id="add-employee-form"> 
           <form #addLicenseForm = "ngForm" (ngSubmit)="addLicenseForm" class="form">
             <div class="form-floating mb-3 container">
-              <input type="text" id = "type" name = "type" class="form-control rounded-0"  placeholder="Enter device type" ngModel required>
+                <input type="text" id = "name" name = "name" class="form-control rounded-0"  placeholder="Enter license name" ngModel required>
+                <label for="name">Name</label>
+              </div>
+            <div class="form-floating mb-3 container">
+              <input type="text" id = "type" name = "type" class="form-control rounded-0"  placeholder="Enter license type" ngModel required>
               <label for="type">Type</label>
             </div>
             <div class="form-floating mb-3 container">
-                <input type="text" id = "quantity" name = "qty" class="form-control rounded-0"  placeholder="Enter device quantity" ngModel required>
+                <input type="text" id = "quantity" name = "qty" class="form-control rounded-0"  placeholder="Enter license quantity" ngModel required>
                 <label for="role">Quantity</label>
               </div>
             <div class="form-floating mb-3 container">
@@ -62,6 +66,7 @@
               <thead>
                 <tr>
                   <th scope="col">License ID</th>
+                  <th scope="col">Name</th>
                   <th scope="col">Type</th>
                   <th scope="col">Licesne Date</th>
                   <th scope="col">Expiry Date</th>
@@ -71,6 +76,7 @@
               <tbody>
                 <tr *ngFor="let license of licenses| searchFilter : searchText  |paginate: {itemsPerPage: 5, currentPage: p, totalItems:totalLicenses}">
                   <th class="table-item" scope="row">{{license.id}}</th>
+                  <td class="table-item" scope="row">{{license.name}}</td>
                   <td class="table-item">{{license.type}}</td>
                   <td class="table-item">{{license.dateIssued}}</td>
                   <td class="table-item">{{license.expiryDate}}</td>
@@ -91,6 +97,13 @@
                 </tr>
               </tbody>
             </table>
+            <div class="table-elements" *ngIf="licenses.length === 0">
+              <div class="robot"></div>
+              <div class="text">
+                <h4>Unable to fetch data at this moment</h4>
+                <p>Try againafter some time</p>
+              </div>
+            </div>
       </div>
       <div class="pagination">
         <pagination-controls (pageChange)="p = $event"></pagination-controls>

@@ -25,14 +25,14 @@ export class ManageSoftwareComponent {
   totalSoftwares!:number;
   config: any;
   searchText = '';
-
+  
+  closeAlert(){
+    this.showAlert = false
+  }
   statusText: string = "";
   statusClass: string = 'hidden';
   background: string = "bg-transparent";
   deleteEmp: boolean = false;
-  closeAlert(){
-    this.showAlert = false
-  }
 
   animatePopup(text: any, background: any) {
     this.statusText = text

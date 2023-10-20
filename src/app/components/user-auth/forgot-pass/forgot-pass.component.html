@@ -1,22 +1,69 @@
-<div class="forgot-pass container">
-    <form class="forgot-pass-form">
-        <div class="form-floating mb-3">
-            <input type="email" name = "email" class="form-control rounded-0" id="floatingInput" placeholder="Enter your Employee ID" required>
-            <label for="floatingInput">E-mail</label>
-        </div>
-        <div class="form-floating mb-3">
-            <input type="newPassword" name = "newPassword" class="form-control rounded-0" id="floatingInput" placeholder="New Password" required>
-            <label for="floatingInput">New Password</label>
-        </div>
-        <div class="form-floating mb-3">
-            <input type="confirmPassword" name = "confirmPassword" class="form-control rounded-0" id="floatingInput" placeholder="New Password" required>
-            <label for="floatingInput">Confirm Password</label>
-        </div>
-        <div class="d-grid gap-2 mb-3">
-            <button type="submit" class="btn btn-lg border-0 rounded-0 update-btn">Update Password</button>
-        </div>
-        <div class="mb-3 text-center">
-            <a href="./userAuth/login" title="SignIn">Continue Login</a>
-        </div>
-    </form>
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
+<div [ngClass]="statusClass" class="{{background}}">
+    <div class="warning" [innerText]="statusText">
+        <p>warning text displayed here</p>
+        <button id="close-btn">
+            <span class="material-symbols-outlined">
+                close
+            </span>
+        </button>
+    </div>
+    <div id="progress-line"></div>
 </div>
+<div class="forgot-pass container">
+    <section>
+        <form class="forgot-pass-form" #form1="ngForm" *ngIf="!isforget">
+            <div class="f-mail">
+                <div class="form-floating mb-3">
+                    <!-- <input type="email" name = "email" class="form-control rounded-0" id="floatingInput" placeholder="Enter your Employee ID" required> -->
+                    <input type="text" required ngModel type="text" class="form-control rounded-0"
+                        name="VerificationEmailAddress" required="true" [(ngModel)]="email">
+                    <button type="submit" class="btn btn-lg border-0 rounded-0 update-btn"
+                        (click)="sendOtp()">Next</button>
+                    <label for="floatingInput">E-mail</label>
+                </div>
+            </div>
+        </form>
+        <form class="otp-form" action="" #form="ngForm" *ngIf="isforget && !isReset" (submit)="otpValidation()">
+            <!-- <input type="OTP" name="OTP" class="form-control rounded-0" id="floatingInput" placeholder="OTP"
+                required="true" [(ngModel)]="otpfromuser"> -->
+            <div class="inputbox">
+                <div class="form-floating mb-3">
+                    <input type="text" required ngModel type="text" class="form-control rounded-0"
+                        name="VerificationEmailAddress" required="true" [(ngModel)]="otpfromuser">
+                    <label for="floatingInput">OTP</label>
+                </div>
+                <button class="btn btn-lg border-0 rounded-0 update-btn" type="submit">Submit</button>
+            </div>
+        </form>
+        <form class="newpass-form" action="" #form1="ngForm" *ngIf="isforget && isReset && isCorrectVerification"
+            (submit)="passwordupdate(form1)">
+            <div class="inputbox">
+                <div class="form-floating mb-3">
+                    <!-- <input type="newPassword" name="newPassword" class="form-control rounded-0" id="floatingInput"
+                    placeholder="New Password" required> -->
+                    <input type="password" required ngModel type="password" name="NewPassword"
+                        class="form-control rounded-0">
+                    <label for="floatingInput">New Password</label>
+                </div>
+            </div>
+            <div class="inputbox">
+                <div class="form-floating mb-3">
+                    <input type="password" required ngModel ngModel type="password" name="ConfirmPassword"
+                        class="form-control rounded-0">
+                    <label for="floatingInput">Confirm Password</label>
+                    <!-- <input type="confirmPassword" name="confirmPassword" class="form-control rounded-0" id="floatingInput"
+                    placeholder="New Password" required> -->
+                </div>
+            </div>
+            <button class="btn btn-lg border-0 rounded-0 reset-btn" type="submit">Reset</button>
+        </form>
+    </section>
+    <div class="mb-3 text-center continue">
+        <a href="./userAuth/login" title="SignIn">Continue Login</a>
+    </div>
+</div>
+<!-- <div class="d-grid gap-2 mb-3">
+    <button type="submit" class="btn btn-lg border-0 rounded-0 update-btn">Update Password</button>
+</div> -->

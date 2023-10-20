@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { DeviceService } from 'src/app/Service/device.service';
 import { LicenseService } from 'src/app/Service/license.service';
-import { Device } from 'src/app/interfaces/device';
 import { License } from 'src/app/interfaces/license';
 
 @Component({
@@ -50,7 +48,7 @@ export class ManageLicenseComponent {
 
   }
   ngOnInit(): void {
-    this.getAllDevices()
+    this.getAllLicenses()
   }
 
   id!:string;
@@ -85,25 +83,26 @@ export class ManageLicenseComponent {
   }
 
   addLicense(license:NgForm){
-    if(license.value.type === "" || license.value.dateAdded === "" || license.value.expiryDate === ""){
+    if(license.value.type === "" || license.value.name==="" || license.value.dateIssued === "" || license.value.expiryDate === ""){
       this.animatePopup("All fields are required !!","bg-red")
     }
     let details:Object = {
       "type": license.value.type,
-      "dateIssued": license.value.dateAdded,
-      "expirydate":license.value.expirydate
+      "name":license.value.name,
+      "dateIssued": license.value.dateIssued,
+      "expiryDate":license.value.expiryDate
     }
     console.log(details)
     this.licenseService.addLicenses(details,license.value.qty).subscribe(
       (response:any) => {
         console.log(response)
         this.animatePopup(response.message,'bg-trans')
-        this.getAllDevices()
+        this.getAllLicenses()
       }
     )
   }
 
-  getAllDevices(){
+  getAllLicenses(){
     this.licenseService.getAllLicenses().subscribe(
       (response:any) => {
         console.log(response)
@@ -111,6 +110,7 @@ export class ManageLicenseComponent {
        for(let i = 0; i < response.length; i++){
         let license:License = {
           "id":response[i].license_id,
+          "name":response[i].name,
           "type":response[i].type,
           "dateIssued":response[i].date_issued,
           "expiryDate":response[i].expiry_date
@@ -125,7 +125,7 @@ export class ManageLicenseComponent {
     this.licenseService.deleteLicense(this.getID()).subscribe(
       (response:any) => {
         this.animatePopup(response.message,'bg-trans')
-        this.getAllDevices()
+        this.getAllLicenses()
       }
     )
   }

@@ -1,0 +1,15 @@
+#comp{
+    display: flex;
+    width:95%;
+    height:10vh;
+    margin: 0 auto 30px auto;
+    align-items: center;
+    justify-content: space-between;
+}
+.button{
+    background-color: var(--secondary);
+    color:var(--background);
+    border:none;
+    height:30px;
+    width: 70px;
+}

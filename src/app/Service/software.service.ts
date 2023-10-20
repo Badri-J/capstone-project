@@ -30,4 +30,16 @@ export class SoftwareService {
     return this.http.delete(`${this.baseURL}deleteSoftware/${id}`)
   }
 
+  public getSoftwareNames(){
+    return this.http.get(`${this.baseURL}getSoftwareNames`) 
+  }
+
+  public getUnassignedSoftwares(){
+    return this.http.get(`${this.baseURL}getUnAssignedSoftwares`) 
+  }
+
+  public getLicense(id:string){
+    return this.http.get(`${this.baseURL}getLicense/${id}`)
+  }
+
 }

@@ -1,0 +1,63 @@
+<div [ngClass]="statusClass" class="{{background}}">
+    <div class="warning" [innerText]="statusText">
+        <p>warning text displayed here</p>
+        <button id = "close-btn">
+            <span class="material-symbols-outlined">
+                close
+            </span>
+        </button>
+    </div>
+    <div id="progress-line" ></div>
+    </div>
+<div id="main-el">
+    <div id="form-element">
+        <form id="form" #f="ngForm">
+            <div class="dropdown">
+                <select name="emp_id" class="dropbtn input-btn" ngModel> 
+                    <option disabled selected value>Select Employee</option>
+                    <option *ngFor="let emp of employeesList" [value]="emp.empid">
+                            {{emp.empid}} - {{emp.name}} - {{emp.role}}
+                    </option>
+                </select>
+              </div>
+              <div class="dropdown">
+                <select name="deviceName" class="dropbtn input-btn" ngModel> 
+                    <option disabled selected value>Select Device to assign</option>
+                    <option *ngFor="let device_name of deviceNames" [value]="device_name">
+                            {{device_name}}
+                    </option>
+                </select>
+              </div>
+              <button class="button" (click)="getFormDetails(f)">Get Devices</button>
+        </form>
+    </div>
+    <div id="table-el">
+        <div id="table">
+            <div id="no-elements" *ngIf="!showTable">No devices to assign</div>
+            <table class="table table-striped bdr" *ngIf="showTable">
+                <thead>
+                  <tr>
+                    <th scope="col">Device ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Date Added</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let device of deviceList">
+                    <th class="table-item" scope="row">{{device.id}}</th>
+                    <td class="table-item">{{device.name}}</td>
+                    <td class="table-item">{{device.type}}</td>
+                    <td class="table-item">{{device.category}}</td>
+                    <td class="table-item">{{device.dateAdded}}</td>
+                    <td class="table-item">
+                        <button (click)="assignDevice(device.id)" class="assign">Assign</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>

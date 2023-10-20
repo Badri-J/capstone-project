@@ -13,8 +13,36 @@
     height: 100vh;
 }
 
+.table-elements{
+    margin-top: -21px;
+    height: 300px;
+    width: 100%;
+    background:white;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    box-shadow: -2px -3px 5px 2px rgb(140, 177, 255, 0.3),
+     2px 3px 5px 2px rgb(0,0,0,0.3) ;
+}
+
+.robot{
+    width:60%;
+    height:100%;
+    background-repeat: no-repeat;
+    opacity:0.6;
+    background-position: center;
+    scale:0.95;
+    background-image: url("https://www.aidriller.com/wp-content/uploads/2020/06/404-robot.gif");
+}
+
+.text{
+    margin-left: 30px ;
+}
+
 #action-buttons{
-    width:100px;
+    width:140px;
     height:40px;
     display: flex;
     align-items: center;
@@ -80,10 +108,12 @@
 .table-striped>tbody>tr:nth-child(even)>th {
  background-color: var(--accent);
 }
+
 .table-striped>tbody>tr:nth-child(odd)>td,
 .table-striped>tbody>tr:nth-child(odd)>th {
  background-color: var(--background);
 }
+
 .add-emp{
     margin:40px 0 0 40px;
 }

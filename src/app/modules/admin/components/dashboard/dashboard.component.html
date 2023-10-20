@@ -1,108 +1,100 @@
 <main>
-    <h1>Dashboard</h1>
-    <p>{{employee | json}}</p>
-    <div class="date">
-        <input type="date">
+    <!-- <h1>Dashboard</h1> -->
+    <h1>Hello {{employee.name}} !!</h1>
+    <!-- <p>{{employee | json}}</p> -->
+    
+    <div id="profile-details">
+        
     </div>
     <div class="insights">
-        <div class="users">
-            <!-- <img src="../../../assets/images/group_FILL0_wght400_GRAD0_opsz40.png" alt=""> -->
+        <div class="det-card" (click)="router.navigate(['employees'])">
+            <span class="material-symbols-outlined icon">
+                person_apron
+            </span>
             <div class="middle">
                 <div class="left">
                     <h3>Users</h3>
-                    <h1>20</h1>
-                </div>
-                <div class="progress">
+                    <h1>{{employees}}</h1>
                 </div>
             </div>
-            <small class="text-muted">Last 24 hours</small>
         </div>
         
-        <div class="devices">
-            <!-- <img src="../../../assets/images/devices_FILL0_wght400_GRAD0_opsz40.png" alt=""> -->
+        <div class="det-card" (click)="router.navigate(['devices'])">
+            <span class="material-symbols-outlined icon">
+                devices_other
+            </span>
             <div class="middle">
                 <div class="left">
                     <h3>Devices</h3>
-                    <h1>14</h1>
+                    <h1>{{devices}}</h1>
                 </div>
-
-                <div class="progress">
-                </div>
-
             </div>
-            <small class="text-muted">Last 24 hours</small>
         </div>
 
-        <div class="softwares">
-            <!-- <img src="../../../assets/images/download_FILL0_wght400_GRAD0_opsz40.png" alt=""> -->
+        <div class="det-card" (click)="router.navigate(['softwares'])">
+            <span class="material-symbols-outlined icon">
+                browser_updated
+                </span>
             <div class="middle">
                 <div class="left">
                     <h3>Softwares</h3>
-                    <h1>6</h1>
-                </div>
-
-                <div class="progress">
+                    <h1>{{softwares}}</h1>
                 </div>
             </div>
-
-            <small class="text-muted">Last 24 hours</small>
         </div>
+
+        <div class="det-card" (click)="router.navigate(['licenses'])">
+            <span class="material-symbols-outlined icon">
+                key
+            </span>
+            <div class="middle">
+                <div class="left">
+                    <h3>Licenses</h3>
+                    <h1>{{licenses}}</h1>
+                </div>
+            </div>
+        </div>
+
     </div>
 
-    <div class="lists">
-        <h2>Softwares</h2>
-        <table>
+    <div id="router-comp" *ngIf="routed">
+        <router-outlet></router-outlet>
+    </div>
+    <h1>Sent E-Mails</h1>
+    <div  id="emp-table">
+        <table class="table table-striped bdr" >
             <thead>
-                <tr>
-                    <th>Device Name</th>
-                    <th>Device Type</th>
-                    <th>Software Name</th>
-                    <th>Developer</th>
-                    <th>Approx Price(USD)</th>
-                </tr>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">toMail</th>
+                <th scope="col">subject</th>
+                <th scope="col">Actions</th>
+              </tr>
             </thead>
-
-            <tbody>
-                <tr>
-                    <td>Samsung</td>
-                    <td>Samsung</td>
-                    <td>Samsung</td>
-                    <td>Samsung</td>
-                    <td>Samsung</td>
-                </tr>
+            <tbody *ngIf="emails.length > 0">
+              <tr *ngFor="let email of emails">
+                <th class="table-item" scope="row">{{email.id}}</th>
+                <td class="table-item">{{email.toMail}}</td>
+                <td class="table-item">{{email.subject}}</td>
+                <td>
+                  <div id="action-buttons">
+                    <button class="action-btn">
+                      <span class="material-symbols-outlined" (click)="selectMail(email)">
+                            arrows_more_up
+                      </span>
+                    </button>
+                  </div>
+                </td>
+              </tr>
             </tbody>
-
-            <tbody>
-                <tr>
-                    <td>Samsung</td>
-                    <td>Samsung</td>
-                    <td>Samsung</td>
-                    <td>Samsung</td>
-                    <td>Samsung</td>
-                </tr>
-            </tbody>
-
-            <tbody>
-                <tr>
-                    <td>Samsung</td>
-                    <td>Samsung</td>
-                    <td>Samsung</td>
-                    <td>Samsung</td>
-                    <td>Samsung</td>
-                </tr>
-            </tbody>
-
-            <tbody>
-                <tr>
-                    <td>Samsung</td>
-                    <td>Samsung</td>
-                    <td>Samsung</td>
-                    <td>Samsung</td>
-                    <td>Samsung</td>
-                </tr>
-            </tbody>
-
-        </table>
+          </table>
+          <div class="table-elements" *ngIf="emails.length === 0">
+            <div class="robot"></div>
+            <div class="text">
+              <h4>Unable to fetch data at this moment</h4>
+              <p>Try againafter some time</p>
+            </div>
+          </div>
     </div>
 
 </main>

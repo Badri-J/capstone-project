@@ -1,11 +1,13 @@
-<div id="not-logged-in" *ngIf="!isLoggedIn()">
+<div id="not-logged-in" *ngIf="!isLoggedIn() || employee.role == 'Admin'">
     <app-not-loged-in></app-not-loged-in>
 </div>
-<div *ngIf="isLoggedIn()">
-    <p>{{employee | json}}</p>
-    
-    <router-outlet></router-outlet>
-    
-    <button (click)="logout()">Logout</button>
+<div *ngIf="isLoggedIn() && employee.role !== 'Admin'" id="comp">
 
+    <h1>Welcome {{employee.name}}</h1> <button class="button" (click)="logout()">Logout</button>
+    
 </div>
+<br>
+<div *ngIf="isLoggedIn() && employee.role !== 'Admin'">
+    <router-outlet></router-outlet>
+</div>
+

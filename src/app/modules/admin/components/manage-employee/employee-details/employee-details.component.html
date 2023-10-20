@@ -1,0 +1,93 @@
+<button class = "close-btn" (click)="close()">
+    <span class="material-symbols-outlined ">
+    close
+    </span>
+  </button>
+  <div id="employee-details"> 
+    <div class="not-found" *ngIf="devices.length === 0">
+        No devices assigned to this employee
+    </div>
+    <div class="card-el" *ngIf="!(devices.length === 0)">
+        <h2>Devices Assigned</h2>
+        <li *ngFor="let device of devices">
+            <div class="details">
+                <div class="element">
+                    <strong class="heading">ID :</strong> 
+                    <i> {{device.id}} </i>
+                </div>
+                <div class="element">
+                    <strong class="heading">Name :</strong> 
+                    <i> {{device.name}} </i>
+                </div>
+                <div class="element">
+                    <strong class="heading">Type :</strong> 
+                    <i> {{device.type}} </i>
+                </div>
+                <div class="element">
+                    <strong class="heading">Category :</strong> 
+                    <i> {{device.category}} </i>
+                </div>
+                <div class="element">
+                    <strong class="heading">Date Added :</strong> 
+                    <i> {{device.dateAdded}} </i>
+                </div>
+            </div>
+        </li>
+    </div>
+    <div class="not-found" *ngIf="softwares.length === 0">
+        No softwares assigned to this employee
+    </div>
+    <div class="card-el" *ngIf="!(softwares.length === 0)">
+        <h2>Softwares Assigned</h2>
+        <li *ngFor="let software of softwares">
+            <div class="details">
+                <div class="element">
+                    <strong class="heading">ID :</strong> 
+                    <i> {{software.id}} </i>
+                </div>
+                <div class="element">
+                    <strong class="heading">Name :</strong> 
+                    <i> {{software.name}} </i>
+                </div>
+                <div class="element">
+                    <strong class="heading">Version :</strong> 
+                    <i> {{software.version}} </i>
+                </div>
+                <div class="element">
+                    <strong class="heading">Date Added :</strong> 
+                    <i> {{software.dateAdded}} </i>
+                </div>
+            </div>
+        </li>
+    </div>
+    <div class="not-found" *ngIf="licenses.length === 0">
+        No licenses assigned the softwares and devices used by this employee employee
+    </div>
+    <div class="card-el" *ngIf="!(licenses.length === 0)">
+        <h2>Licenses Assigned</h2>
+        <li *ngFor="let license of licenses">
+            <div class="details">
+                <div class="element">
+                    <strong class="heading">ID :</strong> 
+                    <i> {{license.id}} </i>
+                </div>
+                <div class="element">
+                    <strong class="heading">Name :</strong> 
+                    <i> {{license.name}} </i>
+                </div>
+                <div class="element">
+                    <strong class="heading">type :</strong> 
+                    <i> {{license.type}} </i>
+                </div>
+                <div class="element">
+                    <strong class="heading">Date Issued :</strong> 
+                    <i> {{license.dateIssued}} </i>
+                </div>
+                <div class="element">
+                    <strong class="heading">Expiry Date :</strong> 
+                    <i> {{license.expiryDate}} </i>
+                </div>
+            </div>
+        </li>
+    </div>
+  </div>

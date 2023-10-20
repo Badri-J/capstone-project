@@ -16,6 +16,10 @@
       </button>
       <div id="update-employee-form"> 
         <form #updateLicenseForm = "ngForm" (ngSubmit)="updateLicenseForm" class="form">
+            <div class="form-floating mb-3 container">
+                <input type="text" id = "name" name = "name" class="form-control rounded-0"  placeholder="Enter license name" [(ngModel)]="license.name" required>
+                <label for="name">Name</label>
+            </div>
           <div class="form-floating mb-3 container">
             <input class="form-control rounded-0" type="text" id= "type" name = "type" [(ngModel)]="license.type" required/>
             <label for="type">Type</label>

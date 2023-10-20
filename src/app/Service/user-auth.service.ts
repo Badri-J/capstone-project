@@ -2,6 +2,7 @@ import { CSP_NONCE, Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Router } from '@angular/router';
 import { Employee } from '../interfaces/employee';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -69,6 +70,40 @@ export class UserAuthService{
 
   deteteEmployee(id:string){
     return this.http.delete(`${this.baseURL}deleteEmployee/${id}`)
+  }
+
+  assignDevice(details:any){
+    return this.http.post(`${this.baseURL}assignDevices`,details)
+  }
+
+  assignSoftware(details:any){
+    return this.http.post(`${this.baseURL}assignSoftwares`,details)
+  }
+
+  getDevices(id:string){
+    return this.http.get(`${this.baseURL}getDevices/${id}`)
+  }
+
+  getSoftwares(id:string){
+    return this.http.get(`${this.baseURL}getSoftwares/${id}`)
+  }
+
+  getDashBoardCardDetails(){
+    return this.http.get(`${this.baseURL}getAllDetails`)
+  }
+
+  forgotpassword(email1:any):Observable<object>{
+    return this.http.get(`${this.baseURL}forgotpassword/${email1}`)
+  }
+
+ 
+
+  updatepassword(email:any,password:any){
+    return this.http.put(`${this.baseURL}updatepassword/${email}/${password}`,{})
+  }
+
+  sendOtp(email:any){
+    return this.http.get(`${this.baseURL}forgotpassword/${email}`)
   }
 
 }

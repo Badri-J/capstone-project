@@ -15,6 +15,12 @@ import { UpdateSoftwareComponent } from './components/manage-software/update-sof
 import { ManageSoftwareComponent } from './components/manage-software/manage-software.component';
 import { ManageLicenseComponent } from './components/manage-license/manage-license.component';
 import { UpdateLicenseComponent } from './components/manage-license/update-license/update-license.component';
+import { InventoryComponent } from './components/inventory/inventory.component';
+import { AssignDevicesComponent } from './components/inventory/assign-devices/assign-devices.component';
+import { AssignSoftwaresComponent } from './components/inventory/assign-softwares/assign-softwares.component';
+import { AssignLicensesComponent } from './components/inventory/assign-licenses/assign-licenses.component';
+import { EmployeeDetailsComponent } from './components/manage-employee/employee-details/employee-details.component';
+import { EmailComponentComponent } from './components/dashboard/email-component/email-component.component';
 
 @NgModule({
     declarations: [
@@ -30,6 +36,12 @@ import { UpdateLicenseComponent } from './components/manage-license/update-licen
         UpdateDeviceComponent,
         UpdateSoftwareComponent,
         UpdateLicenseComponent,
+        InventoryComponent,
+        AssignDevicesComponent,
+        AssignSoftwaresComponent,
+        AssignLicensesComponent,
+        EmployeeDetailsComponent,
+        EmailComponentComponent,
     ],
     imports: [
         CommonModule,

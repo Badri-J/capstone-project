@@ -1,0 +1,61 @@
+<div [ngClass]="statusClass" class="{{background}}">
+    <div class="warning" [innerText]="statusText">
+        <p>warning text displayed here</p>
+        <button id = "close-btn">
+            <span class="material-symbols-outlined">
+                close
+            </span>
+        </button>
+    </div>
+    <div id="progress-line" ></div>
+    </div>
+<div id="main-el">
+    <div id="form-element">
+        <form id="form" #f="ngForm">
+            <div class="dropdown">
+                <select name="emp_id" class="dropbtn input-btn" ngModel> 
+                    <option disabled selected value>Select Employee</option>
+                    <option *ngFor="let emp of employeesList" [value]="emp.empid">
+                            {{emp.empid}} - {{emp.name}} - {{emp.role}}
+                    </option>
+                </select>
+              </div>
+              <div class="dropdown">
+                <select name="softwareName" class="dropbtn input-btn" ngModel> 
+                    <option disabled selected value>Select Device to assign</option>
+                    <option *ngFor="let software_name of softwareNames" [value]="software_name">
+                            {{software_name}}
+                    </option>
+                </select>
+              </div>
+              <button class="button" (click)="getFormDetails(f)">Get Softwares</button>
+        </form>
+    </div>
+    <div id="table-el">
+        <div id="table">
+            <div id="no-elements" *ngIf="!showTable">No softwares to assign</div>
+            <table class="table table-striped bdr" *ngIf="showTable">
+                <thead>
+                  <tr>
+                    <th scope="col">Device ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Version</th>
+                    <th scope="col">Date Added</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let software of softwareList">
+                    <th class="table-item" scope="row">{{software.id}}</th>
+                    <td class="table-item">{{software.name}}</td>
+                    <td class="table-item">{{software.version}}</td>
+                    <td class="table-item">{{software.dateAdded}}</td>
+                    <td class="table-item">
+                        <button (click)="assignSoftware(software.id)" class="assign">Assign</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
