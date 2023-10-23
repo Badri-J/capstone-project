@@ -4,6 +4,7 @@ import { EmailService } from 'src/app/Service/email.service';
 import { UserAuthService } from 'src/app/Service/user-auth.service';
 import { Email } from 'src/app/interfaces/email';
 import { Employee } from 'src/app/interfaces/employee';
+import { SearchFilterPipe } from 'src/app/pipes/search-filter.pipe';
 
 @Component({
   selector: 'app-dashboard',
@@ -26,7 +27,9 @@ export class DashboardComponent implements OnInit {
   routed:boolean=true;
   emails:Email[] = [];
   selectedEmail!:Email;
-
+  searchText!:string;
+  p!:number;
+  totalEmails!:number;
   getCardDetails(){
     this.userAuth.getDashBoardCardDetails().subscribe(
       (response:any) => {
@@ -42,12 +45,15 @@ export class DashboardComponent implements OnInit {
   getEmails(){
     this.emailService.getEmails().subscribe(
       (response:any) => {
+        console.log(response)
         for(let i = 0; i <response.length; i++){
           let email:Email = {
             id: response[i].id,
             toMail: response[i].to_mail,
             subject: response[i].subject,
-            body: response[i].body
+            body: response[i].body,
+            time: response[i].curr_time,
+            date: response[i].curr_date
           }
           if(!this.emails.includes(email)){
             this.emails.push(email)

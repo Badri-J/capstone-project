@@ -61,19 +61,27 @@
         <router-outlet></router-outlet>
     </div>
     <h1>Sent E-Mails</h1>
+    <div id="btn-group">
+        <input type="text" name="search" id="search" placeholder="Search by Email/ Name" [(ngModel)] = "searchText">
+        <!-- <button class=" add-emp" (click)="showAddEmployee()">Add Employee</button> -->
+      </div>
     <div  id="emp-table">
         <table class="table table-striped bdr" >
             <thead>
               <tr>
                 <th scope="col">ID</th>
-                <th scope="col">toMail</th>
+                <th scope="col">Date</th>
+                <th scope="col">Time</th>
+                <th scope="col">To Mail</th>
                 <th scope="col">subject</th>
                 <th scope="col">Actions</th>
               </tr>
             </thead>
             <tbody *ngIf="emails.length > 0">
-              <tr *ngFor="let email of emails">
+              <tr *ngFor="let email of emails | searchFilter : searchText |paginate: {itemsPerPage: 5, currentPage: p, totalItems:totalEmails}">
                 <th class="table-item" scope="row">{{email.id}}</th>
+                <td class="table-item"> {{email.date}} </td>
+                <td class="table-item"> {{email.time}} </td>
                 <td class="table-item">{{email.toMail}}</td>
                 <td class="table-item">{{email.subject}}</td>
                 <td>

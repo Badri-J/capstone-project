@@ -30,7 +30,9 @@ export class EmailComponentComponent implements OnInit{
           'id':response.id,
           'toMail':response.to_mail,
           'subject':response.subject,
-          'body':response.body
+          'body':response.body,
+          'time':'',
+          'date':''
         }
         console.log(this.email)
       }

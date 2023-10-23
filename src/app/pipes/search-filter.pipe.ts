@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SearchFilterPipe implements PipeTransform {
 
-  transform(items: any[], searchText: string): any[] {
+  transform(items: any[], searchText: any): any[] {
     if (!items) return [];
 
     if (!searchText) return items;
@@ -20,7 +20,7 @@ export class SearchFilterPipe implements PipeTransform {
       items.forEach(it => {
         // console.log(it);
         for(let i of Object.keys(it)){
-          if(typeof i === 'string' && it[i].toLowerCase().includes(searchText)) {
+          if(it[i].toLowerCase().includes(searchText)) {
             console.log(i , it)
             if(!results.includes(it)){
               results.push(it);
