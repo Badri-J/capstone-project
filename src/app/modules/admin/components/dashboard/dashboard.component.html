@@ -1,10 +1,11 @@
 <main>
-    <!-- <h1>Dashboard</h1> -->
-    <h1>Hello {{employee.name}} !!</h1>
-    <!-- <p>{{employee | json}}</p> -->
-    
-    <div id="profile-details">
-        
+    <div id="header">
+      <h1 id="heading">Hello {{employee.name}} !!</h1>
+      <div id="buttons">
+        <button (click)="router.navigate(['logs'])">
+          View Logs
+        </button>
+      </div>
     </div>
     <div class="insights">
         <div class="det-card" (click)="router.navigate(['employees'])">
@@ -54,18 +55,12 @@
                 </div>
             </div>
         </div>
-
     </div>
-
     <div id="router-comp" *ngIf="routed">
         <router-outlet></router-outlet>
     </div>
     <h1>Sent E-Mails</h1>
-    <div id="btn-group">
-        <input type="text" name="search" id="search" placeholder="Search by Email/ Name" [(ngModel)] = "searchText">
-        <!-- <button class=" add-emp" (click)="showAddEmployee()">Add Employee</button> -->
-      </div>
-    <div  id="emp-table">
+    <div  id="emp-table animate">
         <table class="table table-striped bdr" >
             <thead>
               <tr>
@@ -78,7 +73,7 @@
               </tr>
             </thead>
             <tbody *ngIf="emails.length > 0">
-              <tr *ngFor="let email of emails | searchFilter : searchText |paginate: {itemsPerPage: 5, currentPage: p, totalItems:totalEmails}">
+              <tr *ngFor="let email of emails| paginate: {itemsPerPage: 5, currentPage: p, totalItems:totalEmails}">
                 <th class="table-item" scope="row">{{email.id}}</th>
                 <td class="table-item"> {{email.date}} </td>
                 <td class="table-item"> {{email.time}} </td>
@@ -86,8 +81,8 @@
                 <td class="table-item">{{email.subject}}</td>
                 <td>
                   <div id="action-buttons">
-                    <button class="action-btn">
-                      <span class="material-symbols-outlined" (click)="selectMail(email)">
+                    <button class="action-btn" (click)="selectMail(email)">
+                      <span class="material-symbols-outlined">
                             arrows_more_up
                       </span>
                     </button>
@@ -103,6 +98,8 @@
               <p>Try againafter some time</p>
             </div>
           </div>
-    </div>
-
+        </div>
+        <div class="pagination">
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
 </main>

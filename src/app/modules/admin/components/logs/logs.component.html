@@ -1,0 +1,32 @@
+<div id="main-el">
+    <h1>Logs</h1>
+    <p>Fetch log activity from</p>
+    <div id="input-fields" >
+        Starting Date: <input type="date" [(ngModel)]="startDate" title="Start Date">
+        Ending Date: <input type="date" [(ngModel)]="endDate" [min]="startDate" [disabled]="startDate == null" (change)="getLogList(startDate,endDate)" title="End Date">
+    </div>
+    <div *ngIf="startDate == null || endDate == null" class="no-contents">
+        Select Start date and end date to view log activity
+    </div>
+    <div *ngIf="startDate != null && endDate != null && logs.length === 0" class="no-contents">
+        No log activity found between {{startDate}} and {{endDate}}
+    </div>
+    <table class="table table-striped bdr" *ngIf="(startDate != null || endDate != null) && logs.length >0">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Date</th>
+            <th scope="col">Time</th>
+            <th scope="col">Log Entry</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let log of logs">
+                <th class="table-item" scope="row">{{log.id}}</th>
+                <td class="table-item">{{log.date}}</td>
+                <td class="table-item">{{log.time}}</td>
+                <td class="table-item">{{log.log_entry}}</td>
+            </tr>
+        </tbody>
+    </table>
+

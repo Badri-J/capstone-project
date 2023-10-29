@@ -16,11 +16,13 @@ import { AssignSoftwaresComponent } from './components/inventory/assign-software
 import { AssignLicensesComponent } from './components/inventory/assign-licenses/assign-licenses.component';
 import { EmployeeDetailsComponent } from './components/manage-employee/employee-details/employee-details.component';
 import { EmailComponentComponent } from './components/dashboard/email-component/email-component.component';
+import { LogsComponent } from './components/logs/logs.component';
 
 const routes: Routes = [
   {path:'', component:AdminAccessComponent,
   children:[
     {path:'', redirectTo:'dashboard', pathMatch:'full'},
+    {path:'logs',component:LogsComponent},
     {path:'dashboard', component:DashboardComponent,
     children:[
       {path:'email/:id',component:EmailComponentComponent}

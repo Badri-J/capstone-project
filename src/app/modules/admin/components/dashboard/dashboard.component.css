@@ -4,6 +4,7 @@ main {
 }
 h1{
     margin: 1.4rem auto;
+    animation: animate-comp 0.3s alternate ease-in-out;
 }
 #profile{
     position: fixed;
@@ -34,7 +35,6 @@ h1{
     grid-template-columns: repeat(4, 1fr);
     gap: 1.6rem;
 }
-
 .insights>div {
     background: transparent;
     padding: 10px;
@@ -69,8 +69,8 @@ h1{
     align-items: center;
     justify-content: space-evenly;
     padding: 20px;
-    position: relative;
     z-index:2;
+    animation: animate-comp 0.4s alternate ease-out;
 }
 .det-card:hover .icon{
     scale: 6;
@@ -149,14 +149,40 @@ h1{
     box-shadow: -2px -3px 5px 2px rgb(140, 177, 255, 0.3),
      2px 3px 5px 2px rgb(0,0,0,0.3) ;
 }
+#header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width:100% ;
+    height: 15vh;
+}
+#header>h1{
+    width: 60%;
+}
+#buttons{
+    width:40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+#buttons>button{
+    border: none;
+    background-color: var(--secondary);
+    color:var(--background);
+    height:40px;
+    width:100px;
+    border-radius: 5px;
+}
 .bdr {
     border-radius: 10px;
     overflow: hidden;
+    animation: animate-comp 0.4s alternate ease-in-out;
 }
 .table-striped>thead>tr>th{
     background-color: var(--secondary);
 }
-
+.table-striped>tbody>tr{
+}
 .table-item{
     height:25px;
     vertical-align: middle;
@@ -164,11 +190,11 @@ h1{
 
 .table-striped>tbody>tr:nth-child(even)>td,
 .table-striped>tbody>tr:nth-child(even)>th {
- background-color: var(--accent);
+    background-color: var(--accent);
 }
 .table-striped>tbody>tr:nth-child(odd)>td,
 .table-striped>tbody>tr:nth-child(odd)>th {
- background-color: var(--background);
+    background-color: var(--background);    
 }
 
 
@@ -197,4 +223,16 @@ h1{
 table tbody td {
     height: 2.8rem;
     border-bottom: 1px solid white;
+}
+
+.pagination{
+    padding: 20px 40px;
+    font-size: 18px;
+    margin: 10px auto;
+}
+
+.pagination::ng-deep .ngx-pagination .current{
+    background:var(--secondary);
+    border-radius: 50%;
+    border:none;
 }

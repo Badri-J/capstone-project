@@ -46,6 +46,21 @@
     }
 }
 
+@keyframes animate-comp {
+    0%{
+        transform: translateY(-100px);
+        opacity:0;
+    }
+    100%{
+        transform:translateY(0);
+        opacity:1;
+    }
+}
+
+.animate{
+    animation: alternate ease-out 0.4s;
+}
+
 @keyframes dec-width {
     0%{
         width:250px;
@@ -73,3 +88,21 @@
     }
 }
 
+.table-striped>thead>tr>th{
+    background-color: var(--secondary);
+}
+
+.table-item{
+    height:35px;
+    vertical-align: middle;
+}
+
+.table-striped>tbody>tr:nth-child(even)>td,
+.table-striped>tbody>tr:nth-child(even)>th {
+ background-color: var(--accent);
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd)>th {
+ background-color: var(--background);
+}

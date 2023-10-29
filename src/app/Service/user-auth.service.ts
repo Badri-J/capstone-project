@@ -95,9 +95,7 @@ export class UserAuthService{
   forgotpassword(email1:any):Observable<object>{
     return this.http.get(`${this.baseURL}forgotpassword/${email1}`)
   }
-
- 
-
+  
   updatepassword(email:any,password:any){
     return this.http.put(`${this.baseURL}updatepassword/${email}/${password}`,{})
   }

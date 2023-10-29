@@ -52,8 +52,8 @@ export class DashboardComponent implements OnInit {
             toMail: response[i].to_mail,
             subject: response[i].subject,
             body: response[i].body,
-            time: response[i].curr_time,
-            date: response[i].curr_date
+            time: response[i].time,
+            date: response[i].date
           }
           if(!this.emails.includes(email)){
             this.emails.push(email)
@@ -62,7 +62,10 @@ export class DashboardComponent implements OnInit {
       }
     )
   }
-
+  showLogs(){
+    console.log("Logs showes")
+    this.router.navigate(['logs'])
+  }
   selectMail(mail:Email){
     this.selectedEmail = mail;
     this.router.navigate(['/admin/dashboard/email',mail.id])
