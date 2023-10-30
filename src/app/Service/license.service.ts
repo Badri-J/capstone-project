@@ -26,6 +26,10 @@ export class LicenseService {
     return this.http.get(`${this.baseURL}getAllLicenses`)
   }
 
+  public getUnAssignedLicenses(){
+    return this.http.get(`${this.baseURL}getUnAssignedLicenses`)
+  }
+
   public updateLicense(details:any){
     return this.http.put(`${this.baseURL}updateLicense`,details)
   }

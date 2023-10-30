@@ -51,7 +51,7 @@
                     <td class="table-item">{{software.version}}</td>
                     <td class="table-item">{{software.dateAdded}}</td>
                     <td class="table-item">
-                        <button class="assign" (click)="assignSoftware(software.id)">Assign</button>
+                        <button class="assign" (click)="assignSoftware(software.id,software.name)">Assign</button>
                     </td>
                   </tr>
                 </tbody>
@@ -75,7 +75,7 @@
                     <td class="table-item">{{device.category}}</td>
                     <td class="table-item">{{device.dateAdded}}</td>
                     <td class="table-item">
-                        <button class="assign" (click)="assignDevice(device.id)">Assign</button>
+                        <button class="assign" (click)="assignDevice(device.id,device.name)">Assign</button>
                     </td>
                   </tr>
                 </tbody>

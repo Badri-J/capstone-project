@@ -38,6 +38,10 @@ export class SoftwareService {
     return this.http.get(`${this.baseURL}getUnAssignedSoftwares`) 
   }
 
+  getUnLicensedSoftwares(){
+    return this.http.get(`${this.baseURL}getUnLicensedSoftwares`) 
+  }
+
   public getLicense(id:string){
     return this.http.get(`${this.baseURL}getLicense/${id}`)
   }

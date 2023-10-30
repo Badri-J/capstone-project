@@ -43,5 +43,8 @@ export class DeviceService {
     return this.http.get(`${this.baseURL}getLicense/${id}`)
   }
 
+  getUnLicensesdDevices(){
+    return this.http.get(`${this.baseURL}getUnLicensesdDevices`)
+  }
 }
 

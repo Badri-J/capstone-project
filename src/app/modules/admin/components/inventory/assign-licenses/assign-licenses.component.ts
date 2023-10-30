@@ -60,18 +60,20 @@ export class AssignLicensesComponent implements OnInit{
     }
   }
 
-  assignDevice(dev_id:string){
+  assignDevice(dev_id:string,name:string){
     this.licenseService.assignDevice({"lic_id":this.license_id,"dev_id":dev_id}).subscribe(
       (response:any) =>{
         this.animatePopup(response.message,'bg-trans')
+        this.showDevices(name)
       }
     )
   }
 
-  assignSoftware(sof_id:string){
+  assignSoftware(sof_id:string, name:string){
     this.licenseService.assignSoftware({"lic_id":this.license_id,"sof_id":sof_id}).subscribe(
       (response:any) =>{
         this.animatePopup(response.message,'bg-trans')
+        this.showSoftwares(name)
       }
     )
   }
@@ -83,7 +85,7 @@ export class AssignLicensesComponent implements OnInit{
 
   showSoftwares(name:string){
     this.showDeviceTable = false;
-    this.softwareService.getAllSoftwares().subscribe(
+    this.softwareService.getUnLicensedSoftwares().subscribe(
       (response:any) => {
         console.log(response)
         this.softwareList = []
@@ -110,7 +112,7 @@ export class AssignLicensesComponent implements OnInit{
 
   showDevices(name:string){
     this.showSoftwareTable = false;
-    this.deviceService.getAllDevices().subscribe(
+    this.deviceService.getUnLicensesdDevices().subscribe(
       (response:any) => {
         console.log(response)
         this.deviceList = []
@@ -137,7 +139,7 @@ export class AssignLicensesComponent implements OnInit{
   }
 
   getLicenseList(licenseType:string){
-    this.licenseService.getAllLicenses().subscribe(
+    this.licenseService.getUnAssignedLicenses().subscribe(
         (response:any) => {
           console.log(response)
           this.licenses = []
