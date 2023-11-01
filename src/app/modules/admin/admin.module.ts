@@ -22,6 +22,7 @@ import { AssignLicensesComponent } from './components/inventory/assign-licenses/
 import { EmployeeDetailsComponent } from './components/manage-employee/employee-details/employee-details.component';
 import { EmailComponentComponent } from './components/dashboard/email-component/email-component.component';
 import { LogsComponent } from './components/logs/logs.component';
+import { RequestsComponent } from './components/requests/requests.component';
 
 @NgModule({
     declarations: [
@@ -44,6 +45,7 @@ import { LogsComponent } from './components/logs/logs.component';
         EmployeeDetailsComponent,
         EmailComponentComponent,
         LogsComponent,
+        RequestsComponent,
     ],
     imports: [
         CommonModule,

@@ -1,0 +1,48 @@
+<div [ngClass]="statusClass" class="{{background}}">
+    <div class="warning" [innerText]="statusText">
+        <p>warning text displayed here</p>
+        <button id = "close-btn">
+            <span class="material-symbols-outlined">
+                close
+            </span>
+        </button>
+    </div>
+    <div id="progress-line" ></div>
+</div>
+<div  id="emp-table">
+    <table class="table table-striped bdr">
+        <thead>
+          <tr>
+            <th scope="col">License ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Type</th>
+            <th scope="col">Licesne Date</th>
+            <th scope="col">Expiry Date</th>
+            <th scope="col">Expiration status</th>
+            <th scope="col">Request</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let license of licenses">
+            <th class="table-item" scope="row">{{license.id}}</th>
+            <td class="table-item" scope="row">{{license.name}}</td>
+            <td class="table-item">{{license.type}}</td>
+            <td class="table-item">{{license.dateIssued}}</td>
+            <td class="table-item">{{license.expiryDate}}</td>
+            <td class="table-item">
+              <p [class]="getRenewalStyle(license)">{{license.licenseStatus}}</p>
+            </td>
+            <td class="table-item">
+                <button (click)="raiseRequest(license.id)">Request Renewal</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="table-elements" *ngIf="licenses.length === 0">
+        <div class="robot"></div>
+        <div class="text">
+          <h4>Unable to fetch data at this moment</h4>
+          <p>Try againafter some time</p>
+        </div>
+      </div>
+</div>

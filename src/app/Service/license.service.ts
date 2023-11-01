@@ -50,4 +50,16 @@ export class LicenseService {
     return this.http.get(`${this.baseURL}getLicenseByID/${id}`)
   }
 
+  public getRequests(){
+    return this.http.get(`${this.baseURL}getRequests`)
+  }
+
+  public raiseRequest(id:string){
+    return this.http.post(`${this.baseURL}raiseRequest/${id}`,{})
+  }
+
+  public acceptRequest(id:string){
+    return this.http.post(`${this.baseURL}acceptRequest/${id}`,{})
+  }
+
 }

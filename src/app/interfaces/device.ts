@@ -3,5 +3,5 @@ export interface Device{
     name:string,
     type:string,
     category:string,
-    dateAdded:string
+    dateAdded:string,
 }

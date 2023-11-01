@@ -1,31 +1,32 @@
 import { Component } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { DeviceService } from 'src/app/Service/device.service';
-import { SoftwareService } from 'src/app/Service/software.service';
-import { UserAuthService } from 'src/app/Service/user-auth.service';
-import { Device } from 'src/app/interfaces/device';
-import { Employee } from 'src/app/interfaces/employee';
+import { LicenseService } from 'src/app/Service/license.service';
+import { DashboardComponent } from '../dashboard/dashboard.component';
 import { License } from 'src/app/interfaces/license';
+import { Device } from 'src/app/interfaces/device';
 import { Software } from 'src/app/interfaces/software';
-import { ManageEmployeeComponent } from '../../admin/components/manage-employee/manage-employee.component';
+import { Employee } from 'src/app/interfaces/employee';
+import { SoftwareService } from 'src/app/Service/software.service';
+import { DeviceService } from 'src/app/Service/device.service';
+import { UserAuthService } from 'src/app/Service/user-auth.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  selector: 'app-requests',
+  templateUrl: './requests.component.html',
+  styleUrls: ['./requests.component.css']
 })
-export class DashboardComponent {
+export class RequestsComponent {
   constructor(private router:Router, 
     private employeeService:UserAuthService,
     private deviceService:DeviceService,
-    private softwareService:SoftwareService ){}
+    private softwareService:SoftwareService,
+    private licenseService:LicenseService ){}
 
     ngOnInit(){
       this.getDevices()
       this.getSoftwares()
     }
 
-  emp:Employee = this.employeeService.getLoggedInEmployee();
   
   devices:Device[]=[]
   softwares:Software[] =[]
@@ -37,6 +38,22 @@ export class DashboardComponent {
   s_count!:number;
   renewalText!:string;
   renewalStyle!:string;
+
+  statusText: string = "";
+  statusClass: string = 'hidden';
+  background: string = "bg-transparent";
+
+  animatePopup(text: any, background: any) {
+    this.statusText = text
+    this.statusClass = 'show';
+    this.background = background;
+    
+    setTimeout(
+      () => {
+        this.statusClass = 'hidden'
+      }, 3000
+    )
+  }
 
   getLicenseStatus(l:License){
     let curr_date:Date = new Date()
@@ -57,7 +74,9 @@ export class DashboardComponent {
       if(diffDays > 0){
         this.renewalText = `Expired ${diffDays} days ago`
       }
-    }else{
+    }
+    else{
+      this.renewalStyle = "green"
       this.renewalText = `All good`
     }
     return this.renewalText
@@ -157,6 +176,13 @@ export class DashboardComponent {
           )
         }
       this.s_count = this.softwares.length
+      }
+    )
+  }
+  raiseRequest(id:string){
+    this.licenseService.raiseRequest(id).subscribe(
+      (response:any) => {
+        this.animatePopup(response.message,"bg-trans")
       }
     )
   }

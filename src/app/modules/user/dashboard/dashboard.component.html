@@ -111,6 +111,7 @@
                 <th scope="col">Type</th>
                 <th scope="col">Licesne Date</th>
                 <th scope="col">Expiry Date</th>
+                <th scope="col">Expiration status</th>
               </tr>
             </thead>
             <tbody>
@@ -120,6 +121,9 @@
                 <td class="table-item">{{license.type}}</td>
                 <td class="table-item">{{license.dateIssued}}</td>
                 <td class="table-item">{{license.expiryDate}}</td>
+                <td class="table-item">
+                  <p [class]="getRenewalStyle(license)">{{license.licenseStatus}}</p>
+                </td>
               </tr>
             </tbody>
           </table>

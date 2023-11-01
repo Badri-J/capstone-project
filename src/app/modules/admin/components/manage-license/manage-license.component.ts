@@ -28,10 +28,7 @@ export class ManageLicenseComponent {
   statusClass: string = 'hidden';
   background: string = "bg-transparent";
   deleteEmp: boolean = false;
-  closeAlert(){
-    this.showAlert = false
-  }
-
+  
   animatePopup(text: any, background: any) {
     this.statusText = text
     this.statusClass = 'show';
@@ -41,8 +38,12 @@ export class ManageLicenseComponent {
       () => {
         this.statusClass = 'hidden'
       }, 3000
-    )
-  }
+      )
+    }
+    
+    closeAlert(){
+      this.showAlert = false
+    }
 
   constructor(private licenseService:LicenseService, private router:Router){
 

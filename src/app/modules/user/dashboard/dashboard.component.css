@@ -10,6 +10,30 @@ main {
     margin-left: 3rem;
     margin-top: 1.4rem;
 }
+.red{
+    color:red;
+    animation:blink 2s ease-out infinite;
+}
+@keyframes blink {
+    0%{
+        opacity:0.9;
+        color:red;
+    }
+    50%{
+        color:black;
+        opacity:0.8
+    }
+    100%{
+        color:red;
+        opacity:1;
+    }
+}
+.yellow{
+    color:yellow;
+}
+.green{
+    color:green;
+}
 
 .insights>div {
     padding: 10px;

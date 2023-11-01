@@ -4,5 +4,5 @@ export interface License{
     type:string;
     dateIssued:string;
     expiryDate:string;
-    
+    licenseStatus?:string;
 }
