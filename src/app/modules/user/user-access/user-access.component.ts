@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserAuthService } from 'src/app/Service/user-auth.service';
 import { Employee } from 'src/app/interfaces/employee';
-import { NotLoggedInComponent } from '../../admin/components/not-logged-in/not-logged-in.component';
 
 @Component({
   selector: 'app-user-access',

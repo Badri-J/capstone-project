@@ -58,7 +58,7 @@
 }
 
 .animate{
-    animation: alternate ease-out 0.4s;
+    animation:animate-comp alternate ease-out 0.4s;
 }
 
 @keyframes dec-width {

@@ -51,3 +51,13 @@
     align-self: flex-start;
     animation: progress linear 3s normal;
 }
+
+.no-content{
+    width:95%;
+    height:300px;
+    margin:auto;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    border:1px solid var(--secondary);
+}

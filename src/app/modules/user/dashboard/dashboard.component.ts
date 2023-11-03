@@ -25,7 +25,20 @@ export class DashboardComponent {
       this.getSoftwares()
     }
 
-  emp:Employee = this.employeeService.getLoggedInEmployee();
+    employee:Employee = this.employeeService.getLoggedInEmployee()
+  
+    isLoggedIn(){
+      if(localStorage.getItem('loginState') == "true"){
+        return true;
+      }else{
+        return false;
+      }
+    }
+  
+    logout(){
+      this.employeeService.setLoginState("false")
+      this.router.navigate(['/userAuth'])
+    }
   
   devices:Device[]=[]
   softwares:Software[] =[]
@@ -37,6 +50,10 @@ export class DashboardComponent {
   s_count!:number;
   renewalText!:string;
   renewalStyle!:string;
+
+  routeToRequests(){
+    this.router.navigate(['user/requests'])
+  }
 
   getLicenseStatus(l:License){
     let curr_date:Date = new Date()

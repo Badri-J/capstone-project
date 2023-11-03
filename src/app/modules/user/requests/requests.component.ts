@@ -129,7 +129,11 @@ export class RequestsComponent {
                 "dateIssued":response.date_issued,
                 "expiryDate":response.expiry_date,
               }
-              if(!this.licenses.includes(license)){
+              let curr_date:Date = new Date()
+              let exp_date:Date = new Date(license.expiryDate)
+              let diff = Math.abs(curr_date.getTime() - exp_date.getTime());
+              let diffDays = Math.ceil(diff / (1000 * 3600 * 24)) -1;
+              if(!this.licenses.includes(license) && diffDays <= 15){
                 license.licenseStatus = this.getLicenseStatus(license)
                 this.licenses.push(license)
                 this.l_count = this.licenses.length 
@@ -166,7 +170,11 @@ export class RequestsComponent {
                 "dateIssued":response.date_issued,
                 "expiryDate":response.expiry_date
               }
-              if(!this.licenses.includes(license)){
+              let curr_date:Date = new Date()
+              let exp_date:Date = new Date(license.expiryDate)
+              let diff = Math.abs(curr_date.getTime() - exp_date.getTime());
+              let diffDays = Math.ceil(diff / (1000 * 3600 * 24)) -1;
+              if(!this.licenses.includes(license) && diffDays <= 15){
                 license.licenseStatus = this.getLicenseStatus(license)
                 this.licenses.push(license)
                 this.l_count = this.licenses.length

@@ -2,6 +2,9 @@
     <div id="header">
       <h1 id="heading">Hello {{employee.name}} !!</h1>
       <div id="buttons">
+        <button (click)="router.navigate(['requests'])">
+          Requests
+        </button>
         <button (click)="router.navigate(['logs'])">
           View Logs
         </button>

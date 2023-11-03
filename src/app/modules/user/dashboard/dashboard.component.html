@@ -1,9 +1,13 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,400,0,0" />
 <main>
-    
-    
+  <div id="comp">
+    <h1>Welcome {{employee.name}}</h1>
+    <div id="btns">
+      <button class="button" (click)="routeToRequests()">Request</button>
+      <button class="button" (click)="logout()">Logout</button>
+    </div>
+  </div>
     <div class="insights">
-        
         <div class="det-card" >
             <span class="material-symbols-outlined icon">
                 devices_other

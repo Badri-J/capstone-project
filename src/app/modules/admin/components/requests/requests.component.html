@@ -9,6 +9,7 @@
     </div>
     <div id="progress-line" ></div>
 </div>
+<h1>License Requests</h1>
 <div  id="emp-table">
     <table class="table table-striped bdr">
         <thead>
@@ -37,9 +38,7 @@
         </tbody>
       </table>
       <div class="table-elements" *ngIf="licenses.length === 0">
-        <div class="robot"></div>
-        <div class="text">
-          <h4>Unable to fetch data at this moment</h4>
-          <p>Try againafter some time</p>
+        <div class="text" style="text-align: center;">
+          <h4>No requests raised at this time</h4>
         </div>
       </div>
